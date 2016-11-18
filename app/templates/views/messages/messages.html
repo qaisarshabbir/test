@@ -1,0 +1,71 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="messages">
+    <section class="conversation-list" ng-show="visible.threads">
+        <div class="start-thread">
+        <div class="toparea">
+            <div class="col-md-8 col-sm-8 col-xs-8">
+               <h2 class="msgHeading">Messages</h2>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                 <div class="icons">
+                    <img src="assets/ic-add-btn.png" alt="Start new conversation button" ng-click="toggleListOfUsers()" ng-hide="userListShown"/>
+                    <i class="fa fa-times" ng-hide="!userListShown" ng-click="toggleListOfUsers()"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2">
+                <form ng-if="userListShown">
+                <input type="text" class="user-search" placeholder="Search for a user" ng-model="searchText" ng-model-options="{ debounce: 500 }" ng-change="searchUsers(searchText)">
+            </form>
+            <ul class="users" ng-if="userListShown" >
+                <li ng-repeat="user in users | orderBy: 'username'" ng-click="openConversation(user)">
+                    {{user.displayName}}
+                </li>
+            </ul>
+        </div>
+
+            
+            
+        </div>
+        <div class="threads" ng-if="!userListShown">
+            <article class="thread-tile" ng-repeat="thread in threads | orderBy: '-lastUpdated'" ng-click="showConversation(thread)" ng-class="{current: thread._id === currentConversation.id}">
+                <h3>{{thread.displayName}}</h3>
+                <h4>{{thread.messages[0].text}}</h4>
+                <h5>{{thread.messages[0].created | date:'short'}}</h5>
+            </article>
+        </div>
+    </section>
+
+
+
+
+    <section class="conversation" ng-show="visible.currentThread">
+        <header>
+            <h1>{{currentConversation.recipient.displayName}}</h1>
+            <div class="back-button" ng-if="!visible.threads" ng-click="toggleView()">Back</div>
+        </header>
+        <div class="contain">
+            <section class="messages-container" scroll-glue>
+                <div class="inner">
+                    <article class="conversation-message" ng-if="!userListShown" ng-repeat="message in currentConversation.messages | orderBy: 'created'">
+                        <figure class="avatar">
+                            <img ng-if="message.author.avatar" ng-src="{{message.author.avatar}}" />
+                            <placeholder ng-if="!message.author.avatar">{{message.author.displayName[0]}}</placeholder>
+                        </figure>
+                        <div class="message-content">
+                            <h6 class="message-author">{{message.author.displayName}}</h6>
+                            <p class="message-text">{{message.text}}</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <footer class="write-message">
+                <form class="write-message-form" ng-submit="sendMessage(newMessage)">
+                    <textarea zip-enter-submit="sendMessage(newMessage)" ng-model="newMessage"></textarea>
+                    <button>Send</button>
+                </form>
+            </footer>
+        </div>
+    </section>
+</div>

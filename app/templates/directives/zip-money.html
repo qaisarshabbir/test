@@ -1,0 +1,8 @@
+<div id="send-money" ng-switch="transaction.phase" ng-if="visible || alwaysShow">
+    <i class="fa fa-times send-money-close" ng-click="closeSendMoney()"></i>
+    <zip-money-amount transaction="transaction" ng-switch-when="amount"></zip-money-amount>
+    <zip-money-confirm transaction="transaction" ng-switch-when="confirm"></zip-money-confirm>
+    <h2 class="thank-you" ng-switch-when="sent">Thanks for sending money!</h2>
+    <button class="start-over-button" ng-if="!ios && (transaction.phase === 'confirm' || transaction.phase === 'sent')" ng-click="clearTransaction()">Start over</button>
+    <a href="ziplink://" ng-if="ios && transaction.phase === 'sent'"><button class="back-to-ios-button">Back to app</button></a>
+</div>

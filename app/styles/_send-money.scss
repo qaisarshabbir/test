@@ -1,0 +1,89 @@
+@mixin submit-button-styles () {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: $send-money-button-background;
+    color: white;
+    height: 40px;
+    width: 90px;
+    border: none;
+    &:hover {
+        background-color: darken($send-money-button-background, 20%);
+    }
+}
+
+#send-money {
+    background-color: $send-money-background;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .send-money-close {
+        align-self: flex-end;
+        margin-right: 8px;
+        cursor: pointer;
+    }
+
+    .start-over-button, .back-to-ios-button {
+        @include button();
+        background-color: $grey-extra-light;
+        &:hover {
+            background-color: darken($grey-extra-light, 20%);
+        }
+    }
+
+    .thank-you {
+        margin: 12px 0;
+    }
+
+    zip-money-amount {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        input {
+            border-radius: 0;
+            border: 1.5px solid $grey-light;
+        }
+        .enter-money-field {
+            width: 200px;
+            margin: 0 auto;
+        }
+        .send-money-amount {
+            font-size: 30px;
+            width: 100%;
+            height: 45px;
+            &.ng-touched.ng-invalid {
+                border: 1px solid red;
+            }
+        }
+        .select-card {
+            width: 200px;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+        .submit-button {
+            @include submit-button-styles();
+        }
+        .add-card-fields {
+            @include add-card-form();
+        }
+    }
+
+    zip-money-confirm {
+        text-align: center;
+        h4 {
+            margin: 12px 0;
+        }
+        .submit-button {
+            @include submit-button-styles();
+        }
+    }
+}
+@media screen and (min-width: $breakpoint-min-width) {
+    #send-money {
+        border: 1px solid $teal;
+        width: $send-money-form-width;
+    }
+}

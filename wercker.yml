@@ -1,0 +1,67 @@
+build:
+  box:
+    id: quay.io/ziplinelabs/nodejs-dev
+    username: $QUAY_USERNAME
+    password: $QUAY_PASSWORD
+    tag: latest
+    registry: quay.io
+    env:
+      NODE_ENV: test
+
+  steps:
+  - script:
+      name: box info
+      code: |
+        echo "node version $(node -v)"
+        echo "npm version $(npm -v)"
+        echo "PhantomJS version $(phantomjs --version)"
+  - npm-install
+  - thangngoc89/bower-install@0.5.8
+  - script:
+      name: print ngmessages before tests
+      code: cat app/bower_components/angular-messages/angular-messages.js
+  - hgen/gulp@0.1.3:
+      tasks: build --build true
+  - script:
+      name: print navbar.html after tests
+      code: cat build/templates/includes/navbar.html
+  - script:
+      name: print ngmessages after tests
+      code: cat build/bower_components/angular-messages.js
+  - script:
+      name: generate kubernetes config files
+      code: ./kubernetes-bootstrap.sh
+  - script:
+      name: copy required files
+      code: cp -r server.js web-rc.build.yml web-secrets.build.yml web-service.build.yml build "$WERCKER_OUTPUT_DIR"
+  - script:
+      name: copy required node_modules packages
+      code: mkdir "$WERCKER_OUTPUT_DIR"/node_modules && mv node_modules/express/ node_modules/express-hbs/ node_modules/lodash/ $_
+
+  after-steps:
+  - slack-notifier:
+      url: $SLACK_WEBHOOK_URL
+      username: Wercker Bot
+
+deploy:
+  box:
+    id: quay.io/ziplinelabs/nodejs
+    username: $QUAY_USERNAME
+    password: $QUAY_PASSWORD
+    tag: latest
+    registry: quay.io
+
+  steps:
+  - internal/docker-push:
+      username: $QUAY_USERNAME
+      password: $QUAY_PASSWORD
+      ports: "5000"
+      repository: quay.io/ziplinelabs/gecko-web
+      registry: https://quay.io
+      tag: $ENV_TAG-latest,$WERCKER_GIT_COMMIT
+      cmd: pm2 start --no-daemon /pipeline/source/server.js
+
+  after-steps:
+  - slack-notifier:
+      url: $SLACK_WEBHOOK_URL
+      username: Wercker Bot

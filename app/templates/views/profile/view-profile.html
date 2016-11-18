@@ -1,0 +1,46 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="view-profile" ng-if="profile" class="zipline-profile">
+    <header>
+        <span class="mobile-spacer"></span>
+        <zip-profile zip-profile-user="profile" zip-profile-show-details="true"></zip-profile>
+
+        
+        
+    <nav>
+        <ul class="navigation-options">
+            <li ng-class="{'active': isPhaseActive('broadcasts')}" ng-click="changePhase('broadcasts')">
+                <i></i>
+                <p>Broadcasts <strong>{{profile.broadcasts.length}}</strong><p>
+            </li>
+            <li ng-class="{'active': isPhaseActive('followers')}" ng-click="changePhase('followers')">
+                <i></i>
+                <p>Followers <strong>{{followers.length}}</strong><p>
+            </li>
+            <li ng-class="{'active': isPhaseActive('following')}" ng-click="changePhase('following')">
+                <i></i>
+                <p>Following <strong>{{following.length}}</strong><p>
+            </li>
+        </ul>
+    </nav>
+    
+    </header>
+    
+    <div ng-switch="phase">
+        <section class="followers" ng-switch-when="followers">
+            <article class="follower-tile" ng-repeat="follower in followers track by follower._id">
+                <zip-profile-user-item class="zip-profile-user-item" zip-profile-user="follower"></zip-profile-user-item>
+            </article>
+        </section>
+        <section class="following" ng-switch-when="following">
+            <article class="following-tile" ng-repeat="following in following track by following._id">
+                <zip-profile-user-item class="zip-profile-user-item" zip-profile-user="following"></zip-profile-user-item>
+            </article>
+        </section>
+        <section class="broadcasts" ng-switch-when="broadcasts">
+            <zip-broadcast-thumbnails broadcasts="broadcasts" hide-profile="true" delete-broadcast="deleteBroadcast"></zip-broadcast-thumbnails>
+        </section>
+    </div>
+</div>
+<div ng-if="errorMessage">
+    <h2>{{errorMessage}}</h2>
+</div>

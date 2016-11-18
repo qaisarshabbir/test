@@ -1,0 +1,4 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="upload-vimeo-broadcast" ng-controller="CurrentUserCtrl as vm">
+    <a href="https://api.vimeo.com/oauth/authorize?client_id=35fcd600dfb005341eb913fd677769d291a64091&response_type=code&redirect_uri=http://localhost:8180/broadcast/upload-vimeo-broadcast&state={{vm.profile._id}}">Connect with Vimeo</a>
+</div>

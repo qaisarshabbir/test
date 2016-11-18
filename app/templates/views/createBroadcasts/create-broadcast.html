@@ -1,0 +1,37 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="create-broadcast" ng-controller="CurrentUserCtrl as vm">
+    <section class="not-a-broadcaster" >
+	
+
+	
+		<div class="col-md-8 col-md-offset-2">
+		<div class="imgCenter">
+				<img src="assets/broadcasts.png" alt="Broadcast Icon" class="img-responsive" />
+			</div>
+					<div ng-if="!vm.profile.broadcaster">
+						
+			
+			<h2>Since you haven't broadcasted on Zipline before, we need a little more information about you.</h2>
+			
+			<div class="text-center">
+				<a ui-sref="becomeBroadcaster"><button class="get-started-button">Get Started</button></a>
+			</div>
+					</div>
+		
+		
+			
+			
+			<div class="broadcast-types">
+				<button class="upload-broadcast broadcast-options" ng-disabled="!vm.profile.broadcaster" ui-sref="uploadBroadcast">
+					<h3>Upload a video</h3>
+				</button>
+				
+				
+				<button class="live-broadcast broadcast-options" >
+					<h3><span ui-sref="liveBroadcasting"><i>Learn more</i></span> about broadcasting live from your mobile device</h3>
+				</button>
+			</div>
+		</div>
+
+    </section>
+</div>

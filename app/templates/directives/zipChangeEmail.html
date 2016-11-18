@@ -1,0 +1,23 @@
+<div ng-switch on="field">
+    <button ng-click="showChangeEmail()" ng-switch-when="notClicked">Edit</button>
+    <form name="emailForm">
+        <div ng-switch-when="clicked">
+            <div class="form-group">
+                <zip-password-field model="changeEmail.password"></zip-password-field>
+                <input type="text" 
+                    class="form-control"
+                    ng-model="changeEmail.email" 
+                    name="newEmail"
+                    placeholder="New email" 
+                    zip-record-validator="email"
+                    required />
+                <div ng-messages="emailForm.newEmail.$error" ng-if="emailForm.newEmail.$touched">
+                    <p ng-message="required">This field is required.</p>
+                    <p ng-message="recordValid">The email address entered is not valid</p>
+                </div>
+            </div>
+            <button class="submit" ng-disabled="emailForm.$invalid" click-and-disable="changeEmail()">Submit</button>
+        </div>
+    </form>
+    <div ng-switch-when="changed">Email Changed</div>
+</div>

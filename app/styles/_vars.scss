@@ -1,0 +1,69 @@
+// FONT
+
+$font: 'proxima-nova', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-weight: 400;
+$font-weight-light: 300;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+//COLORS
+
+$grey-dark: #20292B;
+$grey-regular: #434648;
+$grey-light: #a8b1b6;
+$grey-extra-light: #f0eef5;
+$grey-purple: #584F59;
+$red-light: #ff4555;
+$red-dark: #bc3e48;
+$blue: #48a1d9;
+$pink: #ff237f;
+$purple-dark: #261c37;
+$purple-light: lighten($purple-dark, 60%);
+$teal: #2cc3a4;
+
+$navbar-avatar-placeholder-background: $grey-dark;
+$navbar-avatar-placeholder-color: $grey-regular;
+$navbar-background: $purple-dark;
+$navbar-footer-button-background: $teal;
+$navbar-footer-button-text: $grey-extra-light;
+$navbar-profile-text: $grey-light;
+$navbar-profile-username-text: $grey-extra-light;
+$navbar-login-text: $grey-light;
+$navbar-login-button-background: $blue;
+$navbar-login-input-tint: $blue;
+$navbar-login-input-background: $grey-purple;
+$navbar-navigation-option-color: white;
+$navbar-navigation-option-color-active: $pink;
+
+$marketing-section-background-color: $teal;
+$marketing-section-background-image: url(../assets/LandingPg_greenbar.png);
+$marketing-section-logged-in-background-image: url(../assets/LoggedInPg_greenbar.png);
+$login-modal-background: $navbar-background;
+
+$explore-title-color: $grey-light;
+$explore-title-color-active: $teal;
+$explore-card-background: white;
+
+$comment-button-background: $teal;
+
+$messaging-conversation-column-color: $grey-extra-light;
+
+$send-money-background: lighten($teal, 40%);
+$send-money-button-background: $pink;
+
+$settings-title-color: $pink;
+$settings-title-username-color: $purple-dark;
+$settings-section-header-background: lighten($teal, 40%);
+
+$verify-email-color: $pink;
+$verify-email-link-color: $teal;
+
+//WIDTHS
+$broadcast-comments-column-width: 275px;
+$navbar-width: 288px;
+$navbar-logo-size-mobile: 40px;
+$mobile-spacer-size: $navbar-logo-size-mobile;
+$send-money-form-width: $broadcast-comments-column-width;
+
+//BREAKPOINTS
+$breakpoint-min-width: 900px;

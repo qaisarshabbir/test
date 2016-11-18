@@ -1,0 +1,304 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="new-broadcaster" ng-controller="CurrentUserCtrl as vm">
+    <div ng-if="!vm.profile._id">
+        To become a broadcaster, you must be logged in
+        <ul ng-controller="SignInModalCtrl">
+            <li class="sign-in" ng-click="openSignInModal('login')">Sign in</li>
+            <li class="sign-up" ng-click="openSignInModal('register')">Sign up</li>
+        </ul>
+    </div>
+    <div ng-if="vm.profile.managedAccount">
+        You already have a managed account. <a ui-sref="createBroadcast">Start broadcasting!</a>
+    </div>
+    <form name="managedAccountDemographicsForm"
+    class="managed-account-demographics-form css-form"
+    ng-submit="createManagedAccount()"
+    ng-if="form === 'demographics' && vm.profile._id && !vm.profile.managedAccount">
+	
+	
+		<div class="col-md-8 col-md-offset-2 newBroadcaster">
+			<fieldset class="btn-group">
+				<label class="btn btn-primary toggle" ng-model="managedAccountData.type" uib-btn-radio="'company'">Company</label>
+				<label class="btn btn-primary toggle" ng-model="managedAccountData.type" uib-btn-radio="'individual'">Individual</label>
+			</fieldset>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<!--Business name-->
+					<fieldset class="form-group label-and-messages">
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.businessName.$error" 
+							ng-if="managedAccountDemographicsForm.businessName.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.businessName" 
+						type="text"
+						name="businessName" 
+						id="businessName" 
+						placeholder="Business Name"
+						class="form-control"
+						ng-disabled="managedAccountData.type === 'individual'"
+						required></input>
+					</fieldset>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<!--Tax ID-->
+					<fieldset class="form-group label-and-messages">
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.taxId.$error" 
+							ng-if="managedAccountDemographicsForm.taxId.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.taxId" 
+						type="text"
+						name="taxId" 
+						id="taxId" 
+						placeholder="Tax ID"
+						class="form-control"
+						ng-disabled="managedAccountData.type === 'individual'"
+						required></input>
+					</fieldset>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<label class="c-input c-checkbox" ng-model="managedAccountData.charity">
+					  <input type="checkbox" ng-model="managedAccountData.charity">
+					  <span class="c-indicator"></span>
+					  This channel is for a charitable organization.
+					</label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<!--First name-->
+					<fieldset class="form-group label-and-messages">
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.firstName.$error" 
+							ng-if="managedAccountDemographicsForm.firstName.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.firstName" 
+						type="text"
+						name="firstName" 
+						id="firstName" 
+						placeholder="First Name"
+						class="form-control"
+						required></input>
+					</fieldset>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<!--Last name-->
+					<fieldset class="form-group label-and-messages">
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.lastName.$error" 
+							ng-if="managedAccountDemographicsForm.lastName.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.lastName" 
+						type="text"
+						name="lastName" 
+						id="lastName" 
+						placeholder="Last Name"
+						class="form-control"
+						required></input>
+					</fieldset>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12"><div><label class="form-control-label">Birth Date</label></div></div>
+				<div class="col-md-4 col-sm-4">
+					<!--DOB-->
+					<fieldset class="form-group label-and-messages">
+						<label class="form-control-label">Month</label>
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.dob.$error" 
+							ng-if="managedAccountDemographicsForm.dob.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<select ng-model="managedAccountData.dob.month" 
+						name="dobMonth" 
+						id="dobMonth" 
+						class="form-control required">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+					</fieldset>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<fieldset class="form-group label-and-messages">
+						<label class="form-control-label">Day</label>
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.dobDay.$error" 
+							ng-if="managedAccountDemographicsForm.dobDay.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.dob.day" 
+						type="number"
+						min="1"
+						max="31"
+						name="dobDay" 
+						id="dobDay" 
+						class="form-control"
+						required></input>
+					</fieldset>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<fieldset class="form-group label-and-messages">
+						<label class="form-control-label">Year</label>
+						<div class="error-message" 
+							ng-messages="managedAccountDemographicsForm.dobYear.$error" 
+							ng-if="managedAccountDemographicsForm.dobYear.$touched">
+							<p ng-message="required">Required</p>
+						</div>
+						<input ng-model="managedAccountData.dob.year" 
+						type="number"
+						min="1900"
+						max="2000"
+						name="dobYear" 
+						id="dobYear" 
+						class="form-control"
+						required></input>
+					</fieldset>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Address -->
+					<!-- address-line1 input-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input id="address-line1" placeholder="Address Line 1" name="address-line1" type="text"
+							class="form-control col-xs-4" ng-model="managedAccountData.address.street1">
+						</div>
+					</fieldset>
+				</div>
+				<div class="col-md-12">
+					<!-- address-line2 input-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input id="address-line2" placeholder="Address Line 2" name="address-line2" type="text"
+							class="form-control col-xs-4" ng-model="managedAccountData.address.street2">
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<!-- city input-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input placeholder="City / Town" id="city" name="city" type="text" class="form-control" ng-model="managedAccountData.address.city">
+						</div>
+					</fieldset>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<!-- region input-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input placeholder="State" id="region" name="region" type="text" 
+							class="form-control" ng-model="managedAccountData.address.state">
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<!-- postal-code input-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input placeholder="ZIP" id="postal-code" name="ZIP" type="text"
+							class="form-control" ng-model="managedAccountData.address.zip">
+						</div>
+					</fieldset>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<!--email-->
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input placeholder="Email address" id="postal-code" name="email" type="text"
+							class="form-control" ng-model="managedAccountData.email">
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<fieldset class="form-group label-and-messages">
+						<div class="controls">
+							<input placeholder="Last 4 of SSN" id="last4" name="last4" type="number" minlength="4" maxlength="4" class="form-control" ng-model="managedAccountData.last4">
+						</div>
+					</fieldset>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<label class="c-input c-checkbox" ng-model="managedAccountData.last4">
+					  <input type="checkbox" ng-model="managedAccountData.tos" required>
+					  <span class="c-indicator"></span>
+					  I agree to the <a href="https://stripe.com/us/connect-account/legal" target="_blank">Terms and Conditions</a>
+					</label>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<!--SUBMIT-->
+					<button  class="submit-button" type="submit">
+						<span ng-if="!createManagedAccountLoading || createManagedAccountLoading.$$state.status !== 0">Next</span>
+						<i ng-if="createManagedAccountLoading.$$state.status === 0" class="fa fa-spin fa-spinner"></i>
+					</button>
+				</div>
+			</div>
+				
+		</div>
+    </form>
+
+
+    <form name="managedAccountBankForm"
+    class="managed-account-bank-form css-form"
+    ng-submit="addBankAccount()"
+    ng-if="form === 'bankInformation'">
+	
+		<div class="col-md-8 col-md-offset-2 newBroadcaster">
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<input id="accountNumber" placeholder="Bank account number" name="accountNumber" type="text" class="form-control" ng-model="managedAccountData.accountNumber" required>	
+				</div>
+				<div class="col-md-12 col-sm-12">
+					 <input placeholder="Bank routing number" id="routingNumber" name="routingNumber" type="text" class="form-control" ng-model="managedAccountData.routingNumber" required>
+					<!--SUBMIT-->
+					<button class="submit-button" type="submit">
+						<span ng-if="!createManagedAccountLoading || createManagedAccountLoading.$$state.status !== 0">Finish</span>
+						<i ng-if="createManagedAccountLoading.$$state.status === 0" class="fa fa-spin fa-spinner"></i>
+					</button>
+				</div>
+			</div>
+			
+			
+		</div>
+    </form>
+
+    <div ng-if="form === 'finished'">
+        You're ready to broadcast!
+    </div>
+</div>

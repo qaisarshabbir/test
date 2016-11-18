@@ -1,0 +1,11 @@
+#login-modal {
+    padding: 15px 40px;
+    background-color: $login-modal-background;
+    i.login-modal-close {
+        @include close-button();
+    }
+}
+
+.login-modal-container .modal-dialog {
+    width: 400px;
+}

@@ -1,0 +1,17 @@
+<article ng-repeat="comment in comments | orderBy:'+':true">
+    <div ng-class="{ true: error }" class="comment">
+        <figure class="avatar">
+            <img ng-if="comment.author.avatar" src="{{comment.author.avatar}}" alt="user avatar"/>
+            <placeholder ng-if="!comment.author.avatar" alt="user avatar"/>{{comment.author.username[0]}}</placeholder>
+        </figure>
+        <div class="comment-content">
+            <p ng-if="!comment.money">{{comment.text}}</p>
+            <p ng-if="comment.money">{{comment.author.username}}<span ng-if="!comment.author.username">An anonymous user</span> sent money!</p>
+            <h6 ng-if="!comment.money">{{comment.author.username}}</h6>
+        </div>
+    </div>
+
+    <div class="error-message" ng-if="comment.error" ng-click="retryComment(comment)">
+        Comment not sent. Click to retry.
+    </div>
+</article>

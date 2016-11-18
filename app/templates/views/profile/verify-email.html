@@ -1,0 +1,10 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="verify-email" ng-if="profileLoading.$$state.status !== 0">
+    <h1 ng-if="confirmed">Success!</h1>
+    <h1 ng-if="!confirmed">Uh oh. There was a problem.</h1>
+    <img src="./assets/logo-white-letter.png" alt="Zipline logo" />
+    <h2 ng-if="confirmed">You're confirmed. <a ui-sref="viewAllBroadcasts">Go explore!</a></h2>
+    <h2 ng-if="!confirmed">
+        {{message}}
+    </h2>
+</div>

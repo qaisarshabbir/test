@@ -1,0 +1,19 @@
+<form class="user-comment" 
+    ng-submit="newComment && submitComment()"
+    >
+    <textarea class="new-comment" 
+        ng-model="newComment"
+        placeholder="Join the conversation"
+        zip-enter-submit="newComment && submitComment()"
+        >
+    </textarea>
+    <section class="buttons">
+        <input 
+            class="send-comment"
+            type="submit"
+            value="SEND"
+            >
+        </input>
+        <button class="give-button" id="give-button" zip-show-money-form ng-click="showMoneyForm()">$</button>
+    </section>
+</form>

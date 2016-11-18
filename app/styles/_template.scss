@@ -1,0 +1,1400 @@
+/*
+	- Develop by: Ali Bahadar
+	- Developer website: www.alibahadar.com
+
+	- Author: Zipline
+*/
+
+@font-face {
+  font-family: 'HelveticaLTStdRoman';
+  src: url('../fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman.eot?#iefix') format('embedded-opentype'),  
+		url('../fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman.otf')  format('opentype'),
+	    url('../fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman.woff') format('woff'), 
+		url('../fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman.ttf')  format('truetype'), 
+		url('../fonts/HelveticaLTStd-Roman/HelveticaLTStd-Roman.svg#HelveticaLTStd-Roman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaLTStdLight';
+  src: url('../fonts/HelveticaLTStd-Light/HelveticaLTStd-Light.eot?#iefix') format('embedded-opentype'),  
+		url('../fonts/HelveticaLTStd-Light/HelveticaLTStd-Light.otf')  format('opentype'),
+	    url('../fonts/HelveticaLTStd-Light/HelveticaLTStd-Light.woff') format('woff'), 
+		url('../fonts/HelveticaLTStd-Light/HelveticaLTStd-Light.ttf')  format('truetype'), 
+		url('../fonts/HelveticaLTStd-Light/HelveticaLTStd-Light.svg#HelveticaLTStd-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueLTStdMd';
+  src: url('../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md.otf')  format('opentype'),
+	url('../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md.woff') format('woff'),
+	url('../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md.ttf')  format('truetype'), 
+	url('../fonts/HelveticaNeueLTStd-Md/HelveticaNeueLTStd-Md.svg#HelveticaNeueLTStd-Md') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HelveticaLTStdBold';
+  src: url('../fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold.eot?#iefix') format('embedded-opentype'),  
+		url('../fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold.otf')  format('opentype'),
+	     url('../fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold.woff') format('woff'),
+		 url('../fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold.ttf')  format('truetype'), 
+		 url('../fonts/HelveticaLTStd-Bold/HelveticaLTStd-Bold.svg#HelveticaLTStd-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+a{
+	transition:all 0.7s ease 0s;
+}
+a:hover,a:focus{
+	text-decoration: none;
+}
+
+header#landing-header {
+    float: left;
+    width: 100% !important;
+    padding: 18px 0;
+    display: block !important;
+    height: auto !important;
+    background: #fff;
+    max-width: 100% !important;
+}
+div.logo{
+
+}
+header div.text-right{
+	float: right;
+	color: #7e768b;
+	font-family: HelveticaLTStdRoman;
+	font-size: 16px;
+	padding-top: 2px;
+}
+header div.text-right a{
+	font-family: HelveticaLTStdBold;
+	color: #1b132a;
+}
+header div.text-right a:hover{
+	color: #4e3cbc;
+}
+
+
+
+
+#banner{
+	float: left;
+	width: 100%;
+	background: #fff url("../assets/hero-bg.png") repeat scroll 0 0;
+	padding:0px 0px;
+}
+#banner .imgCenter {
+    margin: 0 auto;
+    float:left;
+	width:100%;
+}
+#banner h1{
+	font-size:25px;
+	color:#2c233b;
+	margin-top:125px;
+	margin-bottom:7px;
+	font-weight:600;
+}
+#banner p{
+	font-size:16px;
+	font-family: HelveticaLTStdLight;
+	color:#7e768b;
+	margin-bottom:40px;
+}
+#banner .applinks{
+	text-align:left;
+}
+#banner .applinks a{
+	display: block;
+	margin-bottom:22px;
+	text-align:leftt
+}
+
+
+div.loginSignupForm{
+	background:#fff;
+	color:#080808;
+	float:left;
+	width:100%;
+	border-radius:0px;
+	box-shadow: 0 0 0px 0 #000;
+	 margin-top: 130px;
+}
+
+div.loginSignupForm .facebook {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-left: 97px;
+    padding: 8px 0 40px 97px;
+}
+div.loginSignupForm .facebook:before {
+    content: "";
+    height: 10px;
+    background: url(../assets/loginTopBar.jpg) no-repeat;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+div.loginSignupForm .facebook img{
+	width:100%
+}
+div.loginSignupForm .facebook img:hover{
+	opacity:0.8;
+}
+div.loginSignupForm div.divider {
+      color: #c8c6cb;
+    float: left;
+    font-family: HelveticaLTStdLight;
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+div.loginSignupForm div.divider::after {
+    background: rgba(200, 198, 203, 0.3);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+div.loginSignupForm div.divider span {
+    background: #fff;
+   border: 1px solid rgba(200,198,203,1);
+    border-radius: 50%;
+    color: rgba(200,198,203,1);
+    display: inline-block;
+    height: 50px;
+    margin-top: -25px;
+    padding-top: 15px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 50px;
+    z-index: 999;
+}
+div.loginSignupForm div.form{
+	border-bottom: 1px solid #dedede;
+    float: left;
+    margin-bottom: 0px;
+    padding: 0 30px;
+    width: 100%;
+}
+div.loginSignupForm div.form input.form-control{
+	background:rgba(213, 213, 213, 0.22);
+	font-family: HelveticaLTStdLight;
+	font-size:16px;
+	color:rgba(200, 198, 203, 0.3);
+	height:auto;
+	border:1px transparent solid;
+	text-align:center;
+	padding:7px 10px;
+	margin-bottom:20px;
+	color:#4e3cbc;
+	box-shadow:0 0 0 transparent !important;
+}
+input.password-checkbox{
+	display: none;
+}
+div.loginSignupForm div.form form{
+	float:left;
+	width:100%;
+}
+div.loginSignupForm div.form input.form-control:focus{
+	border-color:#4e3cbc;
+	box-shadow: none;
+}
+div.loginSignupForm div.form input.form-control::-webkit-input-placeholder {
+  color:rgba(200, 198, 203, 0.9);
+}
+
+div.loginSignupForm div.form input.form-control:-moz-placeholder { /* Firefox 18- */
+  color:rgba(200, 198, 203, 0.9);
+}
+
+div.loginSignupForm div.form input.form-control::-moz-placeholder {  /* Firefox 19+ */
+  color:rgba(200, 198, 203, 0.9);
+}
+
+div.loginSignupForm div.form input.form-control:-ms-input-placeholder {  
+  color:rgba(200, 198, 203, 0.9);
+}
+
+
+div.loginSignupForm input.btn.btn-primary{
+	background: #4e3cbc none repeat scroll 0 0;
+    color: #fff;
+    display: block;
+    font-family: HelveticaNeueLTStdMd;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding: 10px;
+	border:0px;
+    text-transform: uppercase;
+    width: 100%;
+	box-shadow: 0 0 7px 0 #4c3aba ;
+}
+div.loginSignupForm input.btn.btn-primary:hover{
+	box-shadow: 0 0 7px 0 #fff ;
+	background: #fff none repeat scroll 0 0;
+    color: #4e3cbc;
+}
+#banner div.loginSignupForm  div.form p{
+	 color: #4c4757;
+    font-family: HelveticaLTStdLight;
+	padding:7px 0px !important;
+    font-size: 12px;
+    margin: 0 0 5px !important;
+}
+section#banner div.loginSignupForm div.field-group{
+	float:left;
+	width:100%;
+	position:relative;
+}
+section#banner div.loginSignupForm p.ng-scope {
+      margin: 0!important;
+    padding: 0!important;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgba(255, 255, 255, 0.45);
+    top: -15px;
+}
+section#banner div.loginSignupForm p.haveAnAccount {
+    position: relative !important;
+    top: 0px !important;
+    left: 0px !important;
+    text-align: center !important;
+    right: 0px !important;
+    padding: 12px 0px !important;
+	color:#4c4757;
+}
+#banner div.loginSignupForm  div.form p a{
+	color: #4e3cbc;
+	text-decoration: underline;
+	font-size:12px;
+    font-family: HelveticaLTStdLight;
+	  font-weight: bold;
+}
+#banner div.loginSignupForm  div.form p a:hover{
+
+}
+
+
+#banner div.loginSignupForm  p.haveAnAccount{
+	 color: #4c4757;
+    float: left;
+    font-family: HelveticaLTStdLight;
+    font-size: 14px;
+    margin: 0 !important;
+    padding: 20px 10px !important;
+    text-align: center;
+    width: 100%;
+}
+#banner div.loginSignupForm   p.haveAnAccount a{
+	color: #4e3cbc;
+	text-decoration: underline;
+	font-size:14px;
+	font-weight: bold;
+    font-family: HelveticaLTStdLight;
+}
+#banner div.loginSignupForm   p.haveAnAccount a:hover{
+
+}
+
+
+
+
+
+
+
+
+#videosSection{
+	background:#f5f6fa;
+	float: left;
+	width: 100%;
+	padding:35px 0px;
+}
+
+div.videosContainer {
+    float: left;
+    margin-top: 33px;
+    width: 100%;
+}
+
+div.searchbar{
+	background: #fff url("../assets/ic_search.png") no-repeat scroll 15px 10px;
+    border: 1px solid #dfe0e3;
+    border-radius: 3px;
+    float: left;
+    padding: 5px 50px;
+    width: 100%;
+}
+div.searchbar input.form-control{
+	border: 0 solid #dfe0e3;
+    border-radius: 0;
+    box-shadow: none;
+    color: #b6b5b5;
+    font-family: HelveticaLTStdLight;
+    font-size: 24px;
+    height: auto;
+    padding: 5px 35px;
+}
+.form-control::-webkit-input-placeholder {
+  color:#b6b5b5;
+}
+
+.form-control:-moz-placeholder { /* Firefox 18- */
+  color:#b6b5b5;
+}
+
+.form-control::-moz-placeholder {  /* Firefox 19+ */
+  color:#b6b5b5;
+}
+
+.form-control:-ms-input-placeholder {  
+  color:#b6b5b5;
+}
+div.VideoWrap{
+	background: #fff none repeat scroll 0 0;
+    border: 1px solid #dedede;
+    box-shadow: 6px 6px 0 0 #ebecf0;
+    float: left;
+    padding: 6px;
+    width: 100%;
+	margin-bottom: 30px;
+	transition:all 0.5s ease 0s;
+}
+div.VideoWrap:hover{
+	border-color:#4e3cbc;
+}
+div.VideoWrap div.image, div.VideoWrap div.title{
+	float:left;
+	width:100%;
+	position:relative;
+}
+div.VideoWrap  div.overlay{
+	transition:all 0.5s ease 0s;
+	position:absolute;
+	top:0;right:0;bottom:0px;left:0;
+	background: rgba(78,68,188,0.7);
+	opacity:0;
+	visibility: hidden;
+}
+div.VideoWrap:hover div.overlay{
+	opacity:1;
+	visibility: visible;
+}
+div.VideoWrap  div.overlay div.overlayContent{
+	width:100%;
+	height:100%;
+	display:table;
+}
+div.VideoWrap  div.overlay div.overlayContent div.text{
+	width:100%;
+	height:100%;
+	display:table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+div.VideoWrap  div.overlay div.overlayContent div.text a{
+	display: inline-block;
+}
+div.VideoWrap  div.overlay span{
+	color:#fff;
+	font-size:20px;
+}
+div.title a{
+	color: #251839;
+    display: block;
+    font-size: 16px;
+    padding: 10px 0 2px;
+    text-align: center;
+}
+div.VideoWrap:hover div.title a{
+	color:#4e3cbc;
+}
+
+div.videosContainer div.loadMore{
+	 float: left;
+    margin:35px 0 10px;
+    text-align: center;
+    width: 100%;
+}
+div.videosContainer div.loadMore a{
+	display: inline-block;
+	background:#261c37;
+	color:#fff;
+	text-transform: capitalize;
+	font-size:20px;
+	font-family: HelveticaNeueLTStdMd;
+	border-radius:5px;
+	padding:10px 40px;
+	text-align:center;
+	box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.6);
+}
+div.videosContainer div.loadMore a:hover{
+	box-shadow: 0 0 25px 0px rgba(78, 60, 188, 0.6);
+	background:#4e3cbc;
+	color:#fff;
+}
+
+
+
+#HowItsWorks{
+	float: left;
+	background:#fff;
+    text-align: center;
+    width: 100%;
+	padding:40px 0px;
+}
+#HowItsWorks h2{
+	color:#4a3d5f;
+	font-family: HelveticaLTStdBold;
+	font-size:40px;
+	text-align:center;
+}
+#HowItsWorks p{
+	font-size:18px;
+	text-align:center;
+	font-family: HelveticaLTStdLight;
+	color:#7e768b;
+}
+
+#HowItsWorks div.workBox{
+	float: left;
+	background:#f5f6fa;
+	padding:18px;
+    text-align: center;
+    width: 100%;
+	border-radius:5px;
+	margin-top:50px;
+	height:170px;
+	transition:all 0.9s ease 0;
+}
+#HowItsWorks div.workBox2:hover{
+	background:#4e3cbc;
+	box-shadow: 0 0 25px 0px rgba(78, 60, 188, 0.6);
+}
+#HowItsWorks div.workBox div.circle{
+	border:2px #4e3cbc solid;
+	border-radius:50%;
+	display: inline-block;
+	width:78px;
+	height:78px;
+	 margin-bottom: 10px;
+}
+#HowItsWorks div.workBox div.title{
+	color:#828282;
+	font-family: HelveticaLTStdRoman;
+	font-size:24px;
+	 display: inline-block;
+	  margin-bottom: 15px;
+	  position:relative;
+	      width: 100%;
+}
+#HowItsWorks div.workBox div.title::after {
+    background: #e3e3e3 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: auto;
+}
+#HowItsWorks div.workBox div.title span{
+	color:#4e3cbc;
+	font-family: HelveticaLTStdBold;
+	font-size:20px;
+	position: relative;
+	display: block;
+	padding-bottom: 10px;
+}
+#HowItsWorks div.workBox div.title span:after{
+	background: #4e3cbc none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    margin-bottom: -3px;
+    position: absolute;
+    right: 0;
+    top: auto;
+    z-index: 99;
+	display: none;
+
+    margin-bottom: 0;
+    position: absolute;
+    z-index: 99;
+    left: 25%;
+    width: 50%;
+}
+#HowItsWorks div.workBox p{
+	font-size:16px;
+	margin:0px;
+}
+
+#HowItsWorks div.workBox2:hover p{
+	color:#fff;
+}
+#HowItsWorks div.workBox2:hover div.title{
+	color:#c5bcfa;
+}
+#HowItsWorks div.workBox2:hover div.title span:after{
+	background:#fff;
+}
+#HowItsWorks div.workBox2:hover div.title span{
+	color:#fff;
+}
+#HowItsWorks div.workBox2:hover  div.title::after {
+	background:#a79ede;
+}
+#HowItsWorks div.workBox2:hover  div.circle{
+	border-color:#fff;
+}
+
+
+
+
+
+#appsDownload{
+	background: #f5f6fa;
+	float:left;
+	width:100%;
+	text-align:center;
+	padding:60px 0 50px;
+	position:relative;
+}
+#appsDownload img.sideImage{
+	position:absolute;
+	top:40px;
+	z-index:99;
+	right:0;
+	width: 680px;
+}
+
+#appsDownload h2{
+	color:#4a3d5f;
+	font-family: HelveticaLTStdBold;
+	font-size:40px;
+	text-align:center;
+}
+#appsDownload p{
+	font-size:18px;
+	text-align:center;
+	font-family: HelveticaLTStdLight;
+	color:#7e768b;
+	margin-bottom:15px;
+}
+#appsDownload div.applinks{
+	float:left;
+	margin-top: 5px;
+	width:100%;
+}
+#appsDownload div.applinks a{
+	 display: inline-block;
+    margin: 15px;
+}
+#appsDownload div.applinks a img{
+}
+
+
+
+footer{
+	 background: #261c37 none repeat scroll 0 0;
+    color: #fff;
+    float: left;
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+div.footer{
+	float:left;
+	width:100%;
+	padding:55px 0 30px;
+}
+img.footer-logo{
+	margin-bottom:25px;
+}
+div.footer h2.heading{
+	color: #91a0b3;
+    font-family: HelveticaLTStdBold;
+    font-size: 18px;
+    margin-top: 0;
+    padding-bottom: 7px;
+    position: relative;
+}
+div.footer h2.heading::after {
+    background: #312944 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: auto;
+	width: 80%;
+}
+div.footer h2.heading span{
+	position:relative;
+	display: block;
+	color:#91a0b3;
+}
+div.footer h2.heading span::after{
+	background: #91a0b3 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 1px;
+    left: 0;
+    margin-bottom: -7px;
+    position: absolute;
+    right: 0;
+    top: auto;
+    width: 40%;
+    z-index: 999;
+}
+div.footer ul{
+	padding:0px;
+	margin:0px;
+}
+div.footer li{
+	list-style: none;
+}
+div.footer li a{
+	color: #91a0b3;
+	opacity: 0.6;
+    display: inline-block;
+    font-family: HelveticaLTStdRoman;
+    font-size: 14px;
+    padding: 5px 0;
+}
+div.footer p{
+	color:#91a0b3;
+	opacity:0.6;
+	font-size:14px;
+	 text-align: justify;
+	font-family:HelveticaLTStdRoman;
+}
+div.footer li a:hover{
+	color:#fff;
+	opacity:1;
+	text-decoration: none;
+}
+div.copyrights{
+	float:left;
+	width:100%;
+	
+	padding:10px 0px;
+	
+	border-top:1px #312944 solid;
+}
+div.copyrights p{
+	color:#91a0b3;
+	opacity:0.6;
+	margin:0px;
+	font-family:HelveticaLTStdRoman;
+}
+.customlinks{
+	margin:0px;
+	padding:0px;
+}
+.customlinks li{
+	float:left;
+	list-style: none;
+}
+.customlinks li a{
+	color: #91a0b3;
+	opacity: 0.6;
+	font-family:HelveticaLTStdRoman;
+	padding:0px 10px;
+}
+.customlinks li a:after{
+	content: "|";
+	color: #91a0b3;
+	opacity: 0.6;
+	 padding-left: 15px;
+}
+.customlinks li a:last-child:after{
+	display: none;
+}
+.customlinks li a:hover{
+	color:#fff;
+	opacity:1;
+	text-decoration: none;
+}
+
+
+
+.marketing {
+    display: none;
+    float: left;
+    width: 100%;
+}
+#explore, .search {
+    background-color: #f0eef5;
+    float: left;
+    width: 100% !important;
+}
+.marketing .tagline {
+    position: relative;
+    left: 0;
+    top: 0;
+    color: #fff;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+
+
+
+#broadcast-thumbnails{
+	display: block !important;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    /* justify-content: space-between; */
+    float: left;
+    width: 100% !important;
+}
+section#broadcast-thumbnails>figure{
+   background: #fff;
+    border: 1px solid #dedede;
+    box-shadow: 6px 6px 0 0 #ebecf0;
+    float: left;
+    padding: 6px;
+    width: 262px!important;
+    margin-bottom: 30px;
+    transition: all .5s ease 0s;
+    margin: 15px !important;
+}
+#broadcast-thumbnails figure .preview-container{
+	    display: block!important;
+    width: 100%!important;
+    height: 150px !important;
+    background: 0 0!important;
+    overflow: hidden;
+	position:relative;
+	background: url(../assets/logo-purple.png) no-repeat center center !important;
+}
+
+#broadcast-thumbnails figure .preview-container  div.overlay{
+	transition:all 0.5s ease 0s;
+	position:absolute;
+	top:0;right:0;bottom:0px;left:0;
+	background: rgba(78,68,188,0.7);
+	opacity:0;
+	visibility: hidden;
+}
+#broadcast-thumbnails figure:hover .preview-container div.overlay{
+	opacity:1;
+	visibility: visible;
+}
+#broadcast-thumbnails figure .preview-container  div.overlay div.overlayContent{
+	width:100%;
+	height:100%;
+	display:table;
+}
+#broadcast-thumbnails figure .preview-container  div.overlay div.overlayContent div.text{
+	width:100%;
+	height:100%;
+	display:table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+#broadcast-thumbnails figure .preview-container div.overlay div.overlayContent div.text a{
+	display: inline-block;
+}
+#broadcast-thumbnails figure .preview-container  div.overlay span{
+	color:#fff;
+	font-size:20px;
+}
+section#broadcast-thumbnails>figure figcaption a {
+    display: block !important;
+    color: #251839;
+    font-size: 16px;
+    padding: 10px 0 2px;
+    text-align: center;
+}
+section#broadcast-thumbnails>figure figcaption a label{
+	display: block;
+	cursor: pointer;
+	    font-weight: normal;
+}
+section#broadcast-thumbnails>figure:hover{
+	border-color:#4e3cbc;
+	cursor: pointer;
+}
+
+section#broadcast-thumbnails>figure:hover figcaption a{
+	color:#4e3cbc;
+}
+
+
+
+div.facebook-login .fb_iframe_widget span {
+    width: 100% !important;
+    display: block;
+    position: relative;
+    vertical-align: top !important;
+    height: auto !important;
+    text-align: left;
+}
+div.facebook-login .fb_iframe_widget span  .fb_iframe_widget iframe {
+    position: relative;
+    width: 100% !important;
+    height: 70px !important;
+}
+
+div.facebook-login .fb_iframe_widget span  .fb_iframe_widget iframe  ._4z_b {
+    background: #4c69ba;
+    background: linear-gradient(#4c69ba, #3b55a0);
+    border-color: #4c69ba;
+    border-radius: 2px !important;
+    width: 90% !important;
+    height: auto !important;
+    color: #fff;
+    font-family: "Helvetica neue";
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 -1px 0 #354c8c;
+    padding: 15px!important;
+    overflow: hidden !important;
+}
+
+div.login-modal-container header {
+    display: none !important;
+}
+div.login-modal-container  .modal-content {
+    box-shadow: none !important;
+    border: 0px !important;
+}
+div.login-modal-container  #login-modal {
+    padding: 0px;
+    background-color: #fff;
+}
+ div.login-modal-container #login-modal:before {
+    content: "";
+    height: 10px;
+    background: url(../assets/loginTopBar.jpg) no-repeat;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+ div.login-modal-container  #login-and-register {
+    background-color: #fff;
+    color: #fff;
+    font-weight: normal;
+}
+#login-and-register form{
+
+}
+ div.login-modal-container  #login-and-register input.form-control{
+	background:rgba(213, 213, 213, 0.22);
+	font-family: HelveticaLTStdLight;
+	font-size:16px;
+	color:rgba(200, 198, 203, 0.3);
+	height:auto;
+	border:1px transparent solid;
+	text-align:center;
+	padding:7px 10px;
+	margin-bottom:20px;
+	color:#4e3cbc;
+	box-shadow:0 0 0 transparent !important;
+}
+ div.login-modal-container  #login-and-register input.form-control:focus{
+	border-color:#4e3cbc;
+	box-shadow: none;
+}
+ div.login-modal-container  #login-and-register input.form-control::-webkit-input-placeholder {
+  color:rgba(200, 198, 203, 0.3);
+}
+
+ div.login-modal-container  #login-and-register input.form-control:-moz-placeholder { /* Firefox 18- */
+  color:rgba(200, 198, 203, 0.3);
+}
+
+ div.login-modal-container  #login-and-register input.form-control::-moz-placeholder {  /* Firefox 19+ */
+  color:rgba(200, 198, 203, 0.3);
+}
+
+ div.login-modal-container  #login-and-register input.form-control:-ms-input-placeholder {  
+  color:rgba(200, 198, 203, 0.3);
+}
+  div.login-modal-container #login-and-register .buttons-container .submit-button {
+    cursor: pointer;
+    display: inline-block;
+    margin: 4px auto 12px;
+    padding: 6px 12px;
+    font-size: 18px;
+    border-radius: 3px !important;
+    border: 0;
+    width: 105px;
+    height: auto !important;
+    background-color: #337ab7 !important;
+    width: 100% !important;
+}
+  div.login-modal-container  #login-and-register .forgot-password {
+   color: #4e3cbc;
+    float: left;
+    font-size: 14px;
+    margin: 0 0 10px !important;
+    position: relative;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: capitalize;
+    width: 100%;
+}
+  div.login-modal-container  #login-and-register .forgot-password label{
+
+  }
+  
+  form#registration-form a.forgot-password {
+   float: right;
+    position: relative;
+    margin-top: -23px;
+    margin-bottom: 0;
+    background: none;
+    box-shadow: none !important;
+    color: #337ab7;
+	
+	display: none;
+}
+form#registration-form button.btn.btn-primary {
+ background: #261c37 none repeat scroll 0 0; 
+    border: 0 none !important;
+    box-shadow: 0 0 15px rgba(38, 28,55, 0.3);
+    float: left;
+    font-family: helveticaneueltstdmd;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    margin: 0px 0 10px !important;
+    padding: 9px 15px;
+    text-transform: uppercase;
+    width: 100% !important;
+	transition:all 0.5s ease 0s;
+}
+form#registration-form button.btn.btn-primary:hover{
+	 background: #4e3cbc none repeat scroll 0 0;
+	box-shadow:0 0 15px rgba(78, 60, 188, 0.52);
+}
+
+div.login-modal-container #login-and-register .buttons-container .submit-button{
+background: #261c37 none repeat scroll 0 0 !important; 
+    border: 0 none !important;
+    box-shadow: 0 0 15px rgba(38, 28,55, 0.3);
+    float: left;
+    font-family: helveticaneueltstdmd;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    margin: 0px 0 10px !important;
+    padding: 9px 15px;
+    text-transform: uppercase;
+    width: 100% !important;
+	transition:all 0.5s ease 0s;
+}
+div.login-modal-container #login-and-register .buttons-container .submit-button:hover{
+	background: #4e3cbc none repeat scroll 0 0 !important;
+	box-shadow:0 0 15px rgba(78, 60, 188, 0.52);
+}
+
+div.login-modal-container #login-and-register .facebook-login {
+    padding-left: 110px !important;
+    position: relative;
+    text-align: left;
+    width: 100%;
+	float:left;
+}
+div.login-modal-container #login-and-register .facebook-login .fb_iframe_widget span{
+	width:atuo !important;
+}
+div.login-modal-container  div.loginSignupForm{
+	margin-top:0px !important;
+}
+div.loginSignupForm div.form form{
+	padding:0px !important;
+}
+div.login-modal-container #login-and-register label{
+	font-weight: normal;
+	font-size:14px;
+	color:#4c4757;
+}
+div.login-modal-container #login-and-register .buttons-container {
+    height: auto !important; 
+    margin-top: 25px;
+    margin: 10px 0px !important;
+    color: #fff;
+    float: left;
+    width: 100%;
+}
+div.login-modal-container #login-and-register form {
+    padding: 28px;
+    display: inline-block !important;
+    width: 100% !important;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+	background: rgba(213,213,213,.22) !important;
+	color:#4e3cbc !important;
+}
+input:-moz-autofill, textarea:-moz-autofill, select:-moz-autofill{
+	background: rgba(213,213,213,.22) !important;
+		color:#4e3cbc !important;
+}
+input:-ms-autofill, textarea:-ms-autofill, select:-ms-autofill{
+	background: rgba(213,213,213,.22) !important;
+		color:#4e3cbc !important;
+}
+#login-and-register input:-webkit-autofill:first-line {
+   color:#4e3cbc !important;
+}
+
+
+button.broadcast-button.ng-scope{
+	background: #261c37 none repeat scroll 0 0 !important; 
+    border: 0 none !important;
+    box-shadow: 0 0 15px rgba(38, 28,55, 0.3);
+    float: left;
+    font-family: helveticaneueltstdmd;
+    font-size: 14px !important;
+    font-weight: normal !important;
+    margin: 0px 0 10px !important;
+    padding: 9px 15px;
+    text-transform: uppercase;
+    width: 100% !important;
+	transition:all 0.5s ease 0s;
+	    margin-top: 30px !important;
+}
+button.broadcast-button.ng-scope:hover{
+	background: #4e3cbc none repeat scroll 0 0 !important;
+	box-shadow:0 0 15px rgba(78, 60, 188, 0.52);
+}
+section.broadcast-banner.ng-scope{
+    height: auto;
+    width: 100%;
+	float:left;
+	padding:45px 0px;
+    background-image: url(../assets/hero-bg.png);
+    text-align: center;
+}
+section.broadcast-banner h1{
+	font-weight: bold;
+	
+	color: #4a3d5f;
+    font-family: HelveticaLTStdBold;
+    font-size: 40px;
+    text-align: center;
+}
+section.broadcast-banner a{
+	display: inline-block;
+}
+#landing-header .username a {
+    font-family: HelveticaLTStdLight;
+}
+a#simple-dropdown.username-menu {
+    background: #4e3cbc;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff !important;
+    border-radius: 3px !important;
+    width: auto !important;
+    float: right;
+    overflow: hidden !important;
+}
+a#simple-dropdown.username-menu  .fa{
+	color:#fff;
+	padding-left:5px;
+}
+#landing-header .username ul a {
+    color: #20292B;
+    padding: 6px 10px;
+    border-bottom: 1px rgba(0, 0, 0, 0.05) solid;
+}
+#landing-header .username ul a:last-child{
+	 border-bottom: 0px rgba(0, 0, 0, 0.05) solid;
+}
+.imgCenter {
+    text-align: center;
+	
+	img{
+		display: inline-block;
+	}
+}
+
+.ng-scope div.footer div.footerLogo {
+	text-align: center;
+}
+.ng-scope div.footer p {
+	margin-bottom: 65px;
+	text-align: center;
+}
+
+#send-money {
+	border: 1px solid #FFF;
+	background-color: #FFF;
+ }
+
+#send-money zip-money-amount .add-card-fields {
+	background-color: #FFF;
+}
+
+div.select-card select.ng-valid {
+	margin-bottom: 20px;
+}
+
+section#broadcast-thumbnails > figure figcaption a label {
+	cursor: pointer;
+	display: block;
+	font-weight: 400;
+	height: 50px;
+	max-height: 75px;
+	min-height: 50px;
+	overflow: hidden;
+}
+
+div.videosContainer div.loadMore {
+	display: none;
+	float: left;
+	margin: 35px 0 10px;
+	text-align: center;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+@media only screen and (max-width: 1360px){
+	#appsDownload img.sideImage{width:580px;}
+
+	#HowItsWorks div.workBox {
+		height: 180px;
+	}
+}
+
+@media only screen and (max-width: 1199px){
+	div.loginSignupForm, div.loginSignupForm{margin-top:20px !important;}
+	div.loginSignupForm{margin-bottom:20px;}
+	div.loginSignupForm .facebook{padding-left:66px;}
+	#banner h1{margin-top:20px;}
+	section#broadcast-thumbnails>figure{width:293px !important;}
+	
+	#appsDownload img.sideImage{display: none;}
+	
+	#appsDownload div.col-md-6 {
+		float: left;
+		width: 100%;
+		text-align: center;
+	}
+	#appsDownload h2{margin-bottom:20px;}
+	#HowItsWorks div.workBox {
+		height: 210px;
+	}
+}
+
+@media only screen and (max-width: 990px){
+	div.loginSignupForm .facebook{padding:8px 0 40px 39%;}
+	#banner{background-size:cover;}
+	#banner .imgCenter{text-align:center;float:left;width:100%;}
+	#banner .imgCenter img {display: inline-block;}
+	#banner .applinks, #banner h1,#banner p{text-align:center;}
+	
+	div.loginSignupForm .facebook:before{background-size:100%;}
+	#banner h1{margin-top:30px;}
+	
+	section#broadcast-thumbnails>figure{width: 230px!important;margin: 10px !important;}
+
+	div#messages {
+		section.conversation {
+			padding: 50px 30px 30px;;
+		}
+
+		section.conversation-list {
+
+			div.start-thread {
+
+				div.toparea {
+					padding: 50px 20px 10px;
+				}
+			}
+		}
+	}
+
+	#HowItsWorks div.workBox {
+		height: 250px;
+	}
+}
+
+
+@media only screen and (max-width: 767px){
+	div.footer h2.heading{margin-top:20px;}
+	
+	div.copyrights p{text-align:center;}
+	div.copyrights .customlinks {
+		margin: 20px 0px 10px;
+		padding: 0;
+		float: left !important;
+		width: 100%;
+		text-align: center;
+	}
+	div.copyrights .customlinks li {
+		float: none;
+		list-style: none;
+		display: inline-block;
+	}
+	section#broadcast-thumbnails{text-align:center;}
+	section#broadcast-thumbnails>figure {
+		    width: 45%!important;
+			float: none !important;
+			display: inline-block !important;
+	}
+	
+	#banner .col-lg-5.col-md-4.col-sm-12 {
+		float: left;
+		width: 100%;
+	}
+	#HowItsWorks div.workBox {
+		height: auto;
+	}
+	
+	#banner .applinks, #banner h1,#banner p{text-align:center;float:left;width:100%;}
+}
+
+
+
+
+@media only screen and (max-width: 479px){
+	header#landing-header div.lft {
+		float: left;
+		text-align: center;
+		width: 100%;
+	}
+	header#landing-header div.rft {
+		float: left;
+		text-align: center;
+		width: 100%;
+	}
+	header#landing-header div.rft div.text-right {
+		float: left;
+		padding-top: 10px;
+		text-align: center;
+		width: 100%;
+	}
+	
+	
+	#landing-header .username{display: block;}
+		span.ng-scope.dropdown {
+		display: inline-block;
+		float: none;
+	}
+	
+	
+	
+	#banner{display:block !important;}
+	section.MobileVisible {
+		display: none !important;
+		float: left;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 450px){
+	section#broadcast-thumbnails>figure {
+		    width: 90%!important;
+	}
+	
+	.login-modal-container .modal-dialog {
+		width: 310px;
+		    margin-left: auto;
+		margin-right: auto;
+	}
+	div.login-modal-container #login-and-register .facebook-login{
+		    padding-left: 73px!important;
+	}
+	div#ui-view{
+		section#banner {
+			display: none !important;
+		}
+
+		section#navbar {
+			display: block !important;
+		}
+
+		div#login-and-register header.ng-scope {
+			margin-bottom: 0 !important;
+		}
+		zip-login div.loginSignupForm {
+			margin-top: 0 !important;
+		}
+	}
+
+	#login-and-register .forgot-password,
+	#login-and-register .forgot-password:hover {
+		color: #a8b1b6;
+	}
+
+	#login-and-register .buttons-container .submit-button {
+		background-color: #261c37;
+		border: 0 none;
+		border-radius: 3px;
+		box-shadow: 0 0 12px rgba(38, 28, 55, 0.33);
+		color: #FFF;
+		display: inline-block;
+		margin: 0 auto !important;
+		padding: 8px;
+		width: 100% !important;
+		text-transform: uppercase;
+	}
+
+	#login-and-register .buttons-container .submit-button:hover {
+		background-color: #4e3cbc;
+	}
+
+	#login-and-register input,
+	#login-and-register input:focus {
+		background-color: transparent;
+		border: 1px solid #d5d5d5;
+		border-radius: 4px;
+		color: #4e3cbc;
+		margin: 0 auto 10px;
+		text-align: left;
+	}
+	div.loginSignupForm .facebook {
+		padding: 8px 0 40px 28%;
+	}
+
+	div.loginSignupForm {
+		margin-top: 0 !important;
+	}
+
+	zip-register div.loginSignupForm p {
+		text-align: center !important;
+	}
+
+}
+

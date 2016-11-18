@@ -1,0 +1,93 @@
+#new-broadcaster {
+
+	div.newBroadcaster{
+		padding:60px 15px 30px;
+		
+		a{
+			color:#4e3cbc;
+		}
+		
+		.form-control {
+			width: 100%;
+			height: auto;
+			padding: 8px 12px;
+			background-color: #fff;
+			border: 1px solid #e0e0e0;
+			border-radius: 4px;
+			color: #8c8c8c;
+			box-shadow: 0px 0px 0px transparent;
+			transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			font-size: 14px;
+			font-family: HelveticaLTStdLight;
+			margin-bottom:25px;
+			&:focus{
+				box-shadow: none;
+				border-color:#4e3cbc;
+			}
+		}
+	}
+    form {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0px;
+        .toggle {
+            border: 0px;
+			width: 50%;
+			background: #e8e8e8;
+			font-size: 14px;
+			color: #261c37;
+			margin-bottom: 40px;
+			padding:10px;
+			box-shadow: 0px 0px 0px transparent;
+			font-family: HelveticaLTStdRoman;
+            &.active {
+                background-color: #4e3cbc;
+				color: #fff;
+            }
+        }
+        fieldset {
+                margin: 0;
+				float: left;
+				width: 100%;
+				position: relative;
+				
+				.error-message {
+					    position: absolute;
+						top: auto;
+						right: 0;
+						color: red;
+						bottom: -10px;
+				}
+        }
+        .submit-button{
+			background: #261c37!important;
+			border: 0!important;
+			box-shadow: 0 0 15px rgba(38,28,55,.3);
+			float: left;
+			font-family: helveticaneueltstdmd;
+			font-size: 14px!important;
+			font-weight: 400!important;
+			margin: 20px 0 10px!important;
+			padding: 12px 15px;
+			text-transform: uppercase;
+			width: 100%!important;
+			transition: all .5s ease 0s;
+			border-radius: 3px;
+			color: rgba(255, 255, 255, 0.80);
+			
+			span{
+					color: rgba(255, 255, 255, 0.80);
+			}
+					&:hover {
+					   background: #4e3cbc none repeat scroll 0 0 !important;
+						box-shadow:0 0 15px rgba(78, 60, 188, 0.52);
+					}
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-min-width) {
+    #new-broadcaster {
+        @include leave-room-for-navbar();
+    }
+}

@@ -1,0 +1,12 @@
+<div id="zip-profile">
+    <a ui-sref="profile.viewProfile({profileUsername:profile.username})">
+        <figure class="avatar">
+            <img ng-if="profile.avatar" ng-src="{{profile.avatar}}" />
+            <placeholder ng-if="!profile.avatar">{{profile.username[0]}}</placeholder>
+        </figure>
+        <div ng-if="showDetails" class="details">
+            <h1 class="username">{{profile.displayName}}</h1>
+            <h2 class="user-link">zipline.co/<span class="username">{{profile.username}}</span></h2>
+        </div>
+    </a>
+</div>

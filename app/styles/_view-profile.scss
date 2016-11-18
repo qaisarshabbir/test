@@ -1,0 +1,212 @@
+#view-profile {
+    #zip-profile{
+        background: none !important;
+        .avatar> img{
+            border-color: #e7e7e8 !important;
+        }
+
+
+        div.bullonList {
+            float: left;
+            width: 100%;
+            clear: both;
+
+             button {
+                background: #261c37;
+                border: 0px;
+                color: #fff;
+                border-radius: 3px;
+                font-size: 14px;
+                text-transform: uppercase;
+                padding: 7px 15px;
+                line-height: normal;
+                margin-top: 16px;
+                font-family: HelveticaLTStdRoman;
+                font-weight: normal !important;
+                margin: 10px 10px 0 0;
+
+                &:hover{
+                    background: #4e3cbc !important;
+                }
+            }
+            button.unfollow-button, button.unpartner-button{
+                background:#d7d7d7 !important;
+                color:#000;
+            }
+        }
+    }
+
+    >* {
+        padding: 20px;
+    }
+    header {
+        zip-profile a {
+            cursor: default;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            .details {
+                color: #261c37;
+                display: block;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 25px;
+                text-align:left;
+                 margin-left: 20px;
+                .username {
+                    color: #261c37;
+                    margin-left:0px;
+                }
+            }
+        }
+    }
+    nav ul.navigation-options {
+        list-style-type: none;
+        font-size: 16px;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+        padding-left: 0!important;
+        border-bottom: 0px solid #c8f3ea;
+        text-align: center;
+        padding-top: 5px;
+        li {
+            display: inline-block;
+            margin: 0 20px;
+            cursor: pointer;
+
+            p{
+                color: #261c37;
+                font-size:16px;
+                font-family:HelveticaLTStdRoman;
+
+                strong{
+                    font-weight: normal;
+                }
+            }
+
+            &.active {
+                p{
+                    color: #4e3cbc;
+                }
+            }
+
+            &:hover {
+                p{
+                    color: #4e3cbc;
+                }
+            }
+
+            zip-follow-button {
+                button {
+                    @include follow-button();
+                }
+            }
+            zip-partner-with-button {
+                button {
+                    @include partner-with-button();
+                }
+            }
+        }
+    }
+    .zip-profile-user-item {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+        .profile-info {
+            display: flex;
+            align-items: center;
+            color: black;
+            &:hover {
+                text-decoration: none;                
+            }
+            @include avatar(75px);
+
+            .details {
+                margin-left: 12px;
+                h1 {
+                    font-size: 14px;
+                    color:#261c37;
+                     font-family:HelveticaNeueLTStdMd;
+                }
+                h2 {
+                     color:#261c37;
+                    font-size: 14px;
+                    margin-top: 4px;
+                    font-family:HelveticaLTStdLight;
+                }
+            }
+        } 
+        button {
+
+            @include follow-button();
+        }
+    }
+
+
+    #broadcast-thumbnails{
+        text-align:center;
+        figure{
+                float: none;
+                display: inline-block;
+        }
+    }
+}
+
+
+#view-profile #zip-profile .details h2.user-link {
+    display: block;
+    font-size: 16px;
+    color: #8f8f8f;
+    font-weight: normal !important;
+    font-family: HelveticaLTStdLight;
+   span.username{
+         color: #8f8f8f !important;
+         font-weight: normal !important;
+             font-weight: normal !important;
+        font-family: HelveticaLTStdLight;
+    }
+}
+
+#view-profile .zip-profile-user-item button.follow-button{
+    
+}
+
+
+            #view-profile .zip-profile-user-item button.follow-button,#view-profile .zip-profile-user-item button.unfollow-button {
+                background: #261c37;
+                border: 0px;
+                color: #fff;
+                border-radius: 3px;
+                font-size: 14px;
+                text-transform: uppercase;
+                padding: 7px 15px;
+                line-height: normal;
+                font-family: HelveticaLTStdRoman;
+                font-weight: normal !important;
+
+                &:hover{
+                    background: #4e3cbc !important;
+                }
+            }
+            #view-profile .zip-profile-user-item button.unfollow-button{
+                background:#d7d7d7 !important;
+                color:#000 !important;
+
+                &:hover{
+                    color:#fff !important;
+                }
+            }
+
+@media screen and (min-width: $breakpoint-min-width) {
+    #view-profile {
+        @include leave-room-for-navbar();
+        .zip-profile-user-item {
+            width: 600px;
+            margin: 0 auto 10px;
+        }
+    }
+}

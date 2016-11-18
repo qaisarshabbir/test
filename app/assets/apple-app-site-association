@@ -1,0 +1,51 @@
+{
+    "activitycontinuation": {
+        "apps": [
+          "RT4A9NL2DG.co.zipline.testProject",
+          "3VU6R2HS46.co.zipline.testProject",
+          "RT4A9NL2DG.co.zipline.dixie.dev",
+          "3VU6R2HS46.co.zipline.dixie.dev",
+          "RT4A9NL2DG.co.zipline.dixie.staging",
+          "3VU6R2HS46.co.zipline.dixie.staging",
+          "RT4A9NL2DG.co.zipline.dixie.production",
+          "3VU6R2HS46.co.zipline.dixie.production"
+        ]
+    },
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "RT4A9NL2DG.co.zipline.testProject",
+                "paths": [ "*", "/", "/test" ]
+            },
+            {
+                "appID": "3VU6R2HS46.co.zipline.testProject",
+                "paths": [ "*", "/", "/test" ]
+            },
+            {
+                "appID": "RT4A9NL2DG.co.zipline.dixie.dev",
+                "paths": [ "*", "/"]
+            },
+            {
+                "appID": "3VU6R2HS46.co.zipline.dixie.dev",
+                "paths": [ "*", "/"]
+            },
+            {
+                "appID": "RT4A9NL2DG.co.zipline.dixie.staging",
+                "paths": [ "*", "/"]
+            },
+            {
+                "appID": "3VU6R2HS46.co.zipline.dixie.staging",
+                "paths": [ "*", "/"]
+            },
+            {
+                "appID": "RT4A9NL2DG.co.zipline.dixie.production",
+                "paths": [ "*", "/"]
+            },
+            {
+                "appID": "3VU6R2HS46.co.zipline.dixie.production",
+                "paths": [ "*", "/"]
+            }
+        ]
+    }
+}

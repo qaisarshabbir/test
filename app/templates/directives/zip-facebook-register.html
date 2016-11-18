@@ -1,0 +1,32 @@
+<form name="facebookRegistrationForm" 
+id="facebook-registration-form" 
+class="login-form css-form" 
+ng-submit="addUsername()">
+    <!--Username-->
+    <div class="label-and-messages">
+        <label>Username</label>
+        <div class="error-message" 
+            ng-messages="facebookRegistrationForm.username.$error" 
+            ng-if="facebookRegistrationForm.username.$touched">
+            <p ng-message="required">Required</p>
+            <p ng-message="recordValid">Invalid</p>
+        </div>
+    </div>
+    <input ng-model="username" 
+    type="text"
+    name="username" 
+    id="username" 
+    class="form-control" 
+    zip-record-validator="username" 
+    required></input>
+
+    <div class="buttons-container">
+        <!--SUBMIT-->
+        <input 
+            class="btn submit-button"
+            type="submit"
+            value="Sign Up"
+            >
+        </input>
+    </div>
+</form>

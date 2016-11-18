@@ -1,0 +1,239 @@
+@mixin navbar-styles () {
+    display: inline;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    >* {
+        display: inline;
+    }
+    
+    .logo {
+        display: inline-block;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+		position:relative;
+		    background: #261c37 url(../assets/horizental-lines.png) repeat;
+        img {
+            margin: 24px auto;
+			max-width: 180px;
+        }
+    }
+	.logo:before{
+		content: "";
+		height: 3px;
+		position: absolute;
+		top: 0;
+		background: url(../assets/loginTopBar.jpg);
+		left: 0;
+		right: 0;
+	}
+    footer button {
+		border: 0px;
+		cursor: pointer;
+		padding: 16px;
+		background-color: transparent;
+		color: #abb0d0;
+		font-size: 16px;
+		display: block;
+		font-family: HelveticaLTStdLight;
+		width: 100%;
+		margin: 0px;
+		text-align: left;
+		border-bottom: 1px #3c334b solid;
+		
+		 img.nav-icon {
+				margin-right: 15px;
+			}
+		
+        &:hover {
+             background-color: #312841;
+			 color: #abb0d0;
+        }
+    }
+}
+
+#navbar {
+    >* {
+        background-color: $navbar-background;
+    }
+    #nav-box {    
+        height: $navbar-logo-size-mobile;
+        width: $navbar-logo-size-mobile;
+        position: absolute;
+        top:0;
+        left:0;
+        cursor: pointer;
+        > img {
+            height: $navbar-logo-size-mobile;
+            width: $navbar-logo-size-mobile;
+        }
+    }
+    i.navbar-close {
+        @include close-button();
+    }
+    #full-nav {
+        display: none;
+        &.expand-navbar {
+            @include navbar-styles();
+            .logo {
+                img {
+                    margin: 20px auto;
+                }
+            }
+            z-index: 100;
+            width: 100vw;
+            footer {
+                width: 100%;
+            }
+        }
+    }
+
+    ul.navigation-options {
+            width: 100%;
+			padding: 0;
+			margin: 0 auto;
+			color: #fff;
+			list-style-type: none;
+			font-size: 18px;
+			font-weight: 300;
+        li {
+            cursor: pointer;
+			color: #abb0d0;
+			padding: 16px;
+			border-bottom: 1px #3c334b solid;
+			font-size: 16px;
+			font-family: HelveticaLTStdLight;
+            > * {
+                display: inline;
+                text-decoration: none;
+            }
+            .nav-icon {
+                   width: auto;
+				font-size: 24px;
+				margin-right: 13px;
+            }
+            &.active  {
+                background-color: #312841;
+				font-weight: normal;
+            }
+            &:hover,&:active  {
+               background-color: #312841;
+				font-weight: normal;
+            }
+        }
+    }
+}
+
+#ui-view {
+    width: 100%;
+    position: static;
+	background: #f5f6fa;
+}
+
+@media screen and (min-width: $breakpoint-min-width) {
+    #navbar {
+        #nav-box {
+            display: none;
+        }
+        #full-nav {
+            @include navbar-styles();
+            width: $navbar-width;
+            .contain {
+                height: calc(100vh - 115px);
+                overflow-x: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .login-nav-container {
+                    flex-shrink: 0;    
+                }
+            }
+            footer {
+                margin-bottom: 0px;
+                width: 100%;
+				position:relative;
+				    top: -6px;
+            }
+        }
+
+
+    }
+}
+
+
+#navbar #full-nav div.loginSignupForm{margin-top:0px !important;}
+#navbar #full-nav #login-and-register header{margin-bottom:0px !important;}
+#navbar #full-nav #login-and-register input {
+	background:rgba(213, 213, 213, 0.22);
+	font-family: HelveticaLTStdLight;
+	font-size:16px;
+	color:rgba(200, 198, 203, 0.3);
+	height:auto;
+	border:1px transparent solid !important;
+	text-align:center;
+	padding:7px 10px;
+	margin-bottom:20px;
+	color:#4e3cbc;
+	box-shadow:0 0 0 transparent !important;
+}
+#navbar #full-nav #login-and-register input:focus{
+	border-color:#4e3cbc;
+	box-shadow: none;
+}
+#navbar #full-nav div.loginSignupForm .facebook {
+    float: left;
+    width: 100%;
+    position: relative;
+    padding: 21px 0 15px 61px;
+	margin-bottom:30px;
+}
+#navbar #full-nav{
+	p.haveAnAccount.ng-scope {
+		display: none;
+	}
+	#login-and-register header a{
+		
+		&:hover{
+			color:#4e3cbc;
+		}
+	}
+	#login-and-register header .toggle{
+		border:0px !important;
+		&:active{
+			border:0px !important;
+		}
+	}
+	#login-and-register .forgot-password {
+		margin-left: 12px;
+		text-transform: capitalize;
+		text-decoration: underline;
+		font-size: 16px;
+		text-decoration: none;
+		color: #4e3cbc;
+		margin: 0px;
+	}
+	#login-and-register .buttons-container {
+		height:auto;
+	}
+	#login-and-register .buttons-container .submit-button{
+		background: #261c37;
+		box-shadow: 0 0 15px rgba(38,28,55,.3);
+		font-size: 14px!important;
+		font-weight: 400!important;
+		margin: 0 0 10px!important;
+		padding: 9px 15px;
+		width: 100%!important;
+		border: 0!important;
+		font-family: helveticaneueltstdmd;
+		text-transform: uppercase;
+		transition: all .5s ease 0s;
+		float: left;
+		width:100%;
+		
+		&:hover{
+			    background: #4e3cbc;
+				box-shadow: 0 0 15px rgba(78,60,188,.52);
+		}
+	}
+}

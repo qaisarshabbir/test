@@ -1,0 +1,105 @@
+$label-indentation: 12px;
+
+#login-and-register {
+    background-color: $navbar-background;
+    color: $navbar-login-text;
+    font-weight: $font-weight-semibold;
+    header {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        color: $navbar-login-text;
+        font-size: 18px;
+        .toggle {
+            width: 50%;
+            border-bottom: 2px solid $navbar-login-text;
+            text-align: center;
+            padding: 10px 0 10px;
+            &:hover {
+                cursor: pointer;
+                text-decoration: none;
+                background-color: lighten($navbar-background, 10%);
+            }
+            &.active {
+                border-bottom: 2px solid white;
+                color: white;
+            }
+        }
+    }
+
+    input {
+        background-color: $navbar-login-input-background;
+        border-radius: 0;
+        margin: 0px auto 10px auto;
+        border: 0px;
+        color: white;
+        
+        &.form-control {
+            height: 50px;
+        }
+        
+        &:focus {
+            background-color: $grey-dark;
+            border-left: 1px solid $navbar-login-input-tint;
+            box-shadow: none;
+        }
+
+        &:-webkit-autofill {
+            transition: background-color 50000s ease-in-out 0s;
+            -webkit-box-shadow: 0 0 0px 1000px lighten($navbar-login-input-background, 30%) inset;
+        }
+        &:-webkit-autofill:first-line {
+             color: white;
+        }
+    }
+        
+    .password-checkbox {
+        margin-left: $label-indentation;
+    }
+
+    .label-and-messages {
+        display: flex;
+        justify-content: space-between;
+        label {
+            margin-left: $label-indentation;
+            font-size: 18px;
+        }
+    }
+
+    .error-message {
+        color: red;
+    }
+
+    form {
+        padding: 28px;
+    }
+
+    .forgot-password {
+        margin-left: $label-indentation;
+        text-transform: capitalize;
+        text-decoration: underline;
+        font-size: 18px;
+        color: $navbar-login-text;
+        &:hover {
+            color: white;
+        }
+    }
+
+    .buttons-container {
+        height: 100px;
+        margin-top: 25px;
+        color: white;
+        .submit-button {
+            @include button();
+            font-size: 18px;
+            border: 0px;
+            width: 105px;
+            height: 53px;
+            background-color: $navbar-login-button-background;
+            margin-bottom: 12px;
+            &:hover {
+                background-color: darken($navbar-login-button-background, 20%);
+            }
+        }
+    }
+}

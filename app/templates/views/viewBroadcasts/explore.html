@@ -1,0 +1,252 @@
+
+<header id="landing-header">
+
+	<div class="container">
+		<div class="row">
+				<div class="col-md-4 col-sm-5 col-xs-4 lft">
+					<div class="logo">
+						<a href="#"><img src="assets/logo-purple.png" alt="Zipline logo" /></a>
+					</div>
+				</div>
+
+				<div class="col-md-8 col-sm-7 col-xs-8 rft">
+					<div class="text-right">
+						<div ng-if="!isLoggedIn">
+							Already a member?
+							<a href="#" ng-controller="SignInModalCtrl" ng-click="openSignInModal('login')">SIGN IN</a>
+						</div>
+						
+						<div class="username" ng-show="isLoggedIn" ng-controller="CurrentUserCtrl as vm">
+							<span uib-dropdown ng-if="isLoggedIn" on-toggle="toggled(open)">
+								<a href id="simple-dropdown" class="username-menu" uib-dropdown-toggle>
+									{{vm.profile.username}} <i class="fa fa-caret-down" aria-hidden="true"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu aria-labelledby="simple-dropdown">
+									<li>
+										<a ui-sref="profile.viewProfile({profileUsername:vm.profile.username})">View profile</a>
+									</li>
+									<li>
+										<a ui-sref="profile.viewSettings">View settings</a>
+									</li>
+									<li>
+										<a ui-sref="messages">View messages</a>
+									</li>
+									<li>
+										<a ui-sref="createBroadcast">Start a broadcast</a>
+									</li>
+									<li>
+										<a href="#" ng-click="logout()" ng-controller="LogoutCtrl">Sign out</a>
+									</li>
+								</ul>
+							</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+	</div>
+</header>
+
+<div ng-if="isLoggedIn" ng-include src="'templates/includes/broadcast-banner.html'"></div>
+<section ng-controller="NavbarCtrl" id="navbar" class="MobileVisible" style="display: none;">
+	 <div ng-include src="'templates/includes/login-register-form.html'">
+</section>
+<section id="banner" ng-if="!isLoggedIn">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-12">
+                <zip-register ></zip-register>
+				
+				</div>
+				<div class="col-lg-5 col-md-4 col-sm-12">
+					<div class="imgCenter">
+						<img src="assets/hero-mobile.png" class="img-responsive" />
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-4 col-sm-12">
+					<div ng-include src="'templates/includes/marketing-copy.html'"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+<section id="videosSection">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="search">
+						<form class="searchForm">
+						<div class="searchbar">
+							<input ng-model="searchItem" 
+							ng-change="search()"
+							type="text"
+							class="form-control search-box"
+							placeholder="Search"
+							required></input>
+							</div>
+						</form>
+					</div>
+					
+					
+					<div class="row">
+						<div class="videosContainer">
+							<section id="users" ng-if="isState('users')">
+								<article ng-repeat="user in users | orderBy: ['-broadcasts', 'displayName']" ui-sref="profile.viewProfile({profileUsername:user.username})">
+									<zip-profile zip-profile-user="user"></zip-profile>
+									<aside>
+										<h3>{{user.displayName}}</h3>
+										<p>{{user.totalFollowers || 0}} followers</p>
+										<p>{{user.totalFollowing || 0}} following</p>
+										<p>{{user.totalBroadcasts || 0}} broadcasts</p>
+									</aside>
+								</article>
+							</section>
+        <zip-broadcast-thumbnails broadcasts="broadcasts" ng-if="isState('broadcasts')"></zip-broadcast-thumbnails>
+						
+						
+						
+							<div class="col-md-12">
+								<div class="loadMore">
+									<a href="#">Browse More </a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<section id="HowItsWorks">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<h2>How It Works</h2>
+					<p>Zipline app works in 3 easy steps.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="workBox">
+						
+						<div class="title">
+							<span>Broadcast Live</span>
+						</div>
+						<p>Broadcast your video live on Zipline. Show the audience your work you are doing or the message you want to share. </p>
+					</div>
+				</div>
+				
+				
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="workBox">
+					
+						<div class="title">
+							<span>Connect With Your Audience</span>
+						</div>
+						<p>People can watch you live from anywhere (web or smartphone). You can interact with your audience live, send & receive messages. </p>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+					<div class="workBox">
+					
+						<div class="title">
+							<span>Receive Funds</span>
+						</div>
+						<p>All our live broadcasts have the ability to receive money; it can be a donation, or fundraising. Money is deposited directly into your account.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section id="appsDownload">
+		<img src="assets/side-image.png" class="sideImage" />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+				
+					<img src="assets/letter-z.png" />
+					<h2>Download Zipline App</h2>
+					<p>Download free Ziplineapp from Apple & Google store today! </p>
+						
+						<div class="applinks">
+							<a href="https://itunes.apple.com/us/app/zipline-live/id1071418253?mt=8"><img src="assets/btn-apple.png" alt="apple image" /></a>
+							<a href="#"><img src="assets/btn-google-play.png" alt="google play image" /></a>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<footer>
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="footerLogo">
+					<img class="footer-logo" src="assets/logo-footer.png" alt="Zipline logo" />
+				</div>
+				<p>We allow anyone, anywhere to start broadcasting
+live with just their smartphone. Let the world know you are broadcasting live.
+
+				</p>
+			</div>
+			<!--<div class="col-md-8">-->
+				<!--<div class="row">-->
+					<!--<div class="col-md-4">-->
+						<!--<h2 class="heading"><span>Zipline</span></h2>-->
+						<!--<ul>-->
+							<!--<li><a href="#">About Zipline</a></li>-->
+							<!--<li><a href="#">Zipline Blog</a></li>-->
+							<!--<li><a href="#">Zipline Guidelines</a></li>-->
+							<!--<li><a href="#">Jobs</a></li>-->
+							<!--<li><a href="#">Contatc Us</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<!--<div class="col-md-4">-->
+						<!--<h2 class="heading"><span>Help</span></h2>-->
+						<!--<ul>-->
+							<!--<li><a href="#">Help Centre</a></li>-->
+							<!--<li><a href="#">FAQ</a></li>-->
+							<!--<li><a href="#">Marketplace</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+					<!--<div class="col-md-4">-->
+						<!--<h2 class="heading"><span>Upgrade</span></h2>-->
+						<!--<ul>-->
+							<!--<li><a href="#">Zipline Plus</a></li>-->
+							<!--<li><a href="#">Zipline Pro</a></li>-->
+							<!--<li><a href="#">Zipline Enterprise</a></li>-->
+							<!--<li><a href="#">Custom Solutions</a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		</div>
+		</div>
+	</div>
+	<div class="copyrights">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-xs-12">
+					<p>&copy; 2016, zipline labs Inc. All rights reserved</p>
+				</div>
+				<div class="col-sm-6 col-xs-12">
+					<ul class="pull-right customlinks">
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Copyrights</a></li>
+						<li><a href="#">Cookies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+

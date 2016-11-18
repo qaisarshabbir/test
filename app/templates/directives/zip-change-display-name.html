@@ -1,0 +1,20 @@
+<div ng-switch on="field">
+    <button ng-click="showChangeDisplayName()" ng-switch-when="notClicked">Edit</button>
+    <form name="displayNameForm" ng-submit="changeDisplayName(displayName.new)">
+        <div ng-switch-when="clicked">
+            <div class="form-group">
+                <input type="text" 
+                    class="form-control"
+                    ng-model="displayName.new" 
+                    name="newDisplayName"
+                    placeholder="New display name"
+                    required />
+                <div ng-messages="displayNameForm.newDisplayName.$error" ng-if="displayNameForm.newDisplayName.$touched">
+                    <p ng-message="required">This field is required.</p>
+                </div>
+            </div>
+            <button class="submit" ng-disabled="emailForm.$invalid">Submit</button>
+        </div>
+    </form>
+    <div ng-switch-when="changed">Display name changed</div>
+</div>

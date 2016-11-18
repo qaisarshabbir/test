@@ -1,0 +1,10 @@
+.mobile-spacer {
+    height: $mobile-spacer-size;
+    width: $mobile-spacer-size;
+    float: left;
+}
+@media screen and (min-width: $breakpoint-min-width) {
+    .mobile-spacer {
+        display: none;
+    }
+}

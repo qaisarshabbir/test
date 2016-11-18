@@ -1,0 +1,19 @@
+html,
+body {
+    font-family: $font;
+    color: $grey-dark;
+    font-weight: $font-weight;
+    height: 100%;
+}
+
+#ui-view {
+    height: 100%;
+}
+
+@mixin button() {
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-block;
+    margin: 4px auto;
+    padding: 6px 12px;
+}

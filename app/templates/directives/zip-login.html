@@ -1,0 +1,49 @@
+<div class="loginSignupForm">
+						<!--  <div class="facebook-login">
+						<fb:login-button zip-fb-login scope="public_profile, email" onlogin="checkLoginState();">
+						</fb:login-button>
+					</div>-->
+					
+					
+					<div class="facebook-login facebook">
+						<fb:login-button zip-fb-login class="btnFacebook" length="long" size="large" scope="public_profile,email" onlogin="checkLoginState();">
+							<span class="btnFacebookSpan">Login with Facebook</span>
+						</fb:login-button>
+					</div>
+						
+						<div class="divider">
+							<span>or</span>
+						</div>
+						<div class="form registration">
+							
+								
+							<form  name="loginForm" 
+								id="login-form" 
+								class="login-form css-form" 
+								ng-submit="login()">
+								
+								<div class="field-group">
+									<!--Username-->
+									<zip-username-field model="loginData.identifier"></zip-username-field>
+								</div>
+								<div class="field-group">
+									<!--Password-->
+									<zip-password-field model="loginData.secret"></zip-password-field>
+								</div>
+								
+
+								
+								
+								<div><a href="#" ng-click="forgotPassword()" class="forgot-password">Forgot Password</a></div>
+								<div class="buttons-container">
+									<!--SUBMIT-->
+									<button class="submit-button" type="submit">
+										<span ng-if="!loginLoading || loginLoading.$$state.status !== 0">Sign In</span>
+										<i ng-if="loginLoading.$$state.status === 0" class="fa fa-spin fa-spinner"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+						
+					</div>
+

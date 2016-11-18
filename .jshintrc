@@ -1,0 +1,8 @@
+{
+    "quotmark": "single",
+    "devel": false,
+    "esversion": 6,
+
+    // Custom Globals
+    "globals" : {} // additional predefined global variables
+}

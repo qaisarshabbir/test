@@ -1,0 +1,116 @@
+#upload-broadcast {
+    .broadcast-upload-form {
+        padding: 24px;
+    }
+    
+    input[type='file'] {
+        color: $teal;
+        display: none;
+    }
+
+	.form-control {
+		width: 100%;
+		height: auto;
+		padding: 10px 12px;
+		background-color: #fff;
+		border: 1px #d5d5d5 solid;
+		border-radius: 3px;
+		box-shadow: 0px 0px 0px transparent;
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	}
+    .custom-file-upload {
+          border: 1px solid transparent;
+		cursor: pointer;
+		display: block;
+		font-size: 16px;
+		padding: 8px 33px;
+		background-color: #261c37;
+		min-width: auto;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 400;
+		float: none;
+		text-align: center;
+		margin: 10px auto;
+		box-shadow: 0 0 12px rgba(38,28,55,.33);
+    }
+
+    label {
+        margin-top: 12px;
+        color: $teal;
+        border-radius: 3px;
+    }
+    button {
+      border: 1px solid transparent;
+		cursor: pointer;
+		display: block;
+		font-size: 16px;
+		padding: 8px 33px;
+		background-color: #261c37;
+		min-width: auto;
+		border-radius: 3px;
+		color: #fff;
+		font-weight: 400;
+		float: none;
+		text-align: center;
+		margin: 10px auto;
+		box-shadow: 0 0 12px rgba(38,28,55,.33);
+        &:hover {
+          
+        }
+        &:disabled {
+            cursor: auto;
+            background-color: $grey-extra-light;
+        }
+    }
+
+    form .progress {
+        line-height: 15px;
+    }
+
+    .progress {
+        display: inline-block;
+        width: 100px;
+        border: 3px groove $grey-light;
+    }
+
+    .progress div {
+        font-size: smaller;
+        background: $pink;
+        width: 0;
+    }
+}
+
+#upload-broadcast {
+	padding-top: 50px;
+	
+	span.ng-binding {
+		color: #000;
+	}
+}
+#upload-broadcast .progress {
+  display: block;
+    height: auto !important;
+    margin: 0 auto !important;
+    line-height: normal !important;
+    width: 70%;
+    border: 1px solid #4e3cba;
+    box-shadow: 0px 0px 0px transparent;
+}
+
+#upload-broadcast .progress div {
+    font-size: 14px;
+    background: #4e3cba;
+    width: 0;
+    text-align: left;
+    padding: 5px 0px;
+}
+@media screen and (min-width: $breakpoint-min-width) {
+    #upload-broadcast {
+		    padding-top: 50px;
+        @include leave-room-for-navbar();
+        .broadcast-upload-form {
+            width: 100%;
+        }
+    }
+}

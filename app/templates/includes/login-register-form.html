@@ -1,0 +1,35 @@
+<div id="login-and-register" ng-switch="display">
+    <header ng-if="display !== 'logged-in'">
+        <div class="login toggle" ng-click="setForm('login-form')" ng-class="{active: display === 'login-form'}"> 
+            Sign In
+        </div>
+        <div class="register toggle" ng-click="setForm('register-form')" ng-class="{active: display === 'register-form'}"> 
+            Sign Up
+        </div>
+    </header>
+    <zip-forgot-password ng-switch-when="forgot-password"></zip-forgot-password>
+    <zip-login ng-switch-when="login-form"></zip-login>
+    <zip-register ng-switch-when="register-form"></zip-register>
+    <zip-facebook-register ng-switch-when="facebook-register-form"></zip-facebook-register>
+    <zip-profile ng-switch-when="logged-in" zip-profile-user="profile" zip-profile-show-details="true"></zip-profile>
+    <ul ng-switch-when="logged-in" class="navigation-options">
+        <li ui-sref-active="active" ui-sref="viewAllBroadcasts">
+            <img class="nav-icon" src="/assets/user-icon-mdpi.png" alt="profile icon"></img>
+            <p>Explore</p>
+        </li>
+        <li ui-sref-active="active" ui-sref="profile.viewProfile({profileUsername:profile.username})">
+            <img class="nav-icon" src="/assets/profile-mdpi.png" alt="profile icon"></img>
+            <p>Profile</p>
+        </li>
+        <li ui-sref-active="active" ui-sref="messages">
+            <img class="nav-icon" src="/assets/messages-mdpi.png" alt="messages icon"></img>
+            <p>Messages</p>
+        </li>
+        <li ui-sref-active="active" ui-sref="createBroadcast">
+            <img class="nav-icon" src="/assets/broadcast-mdpi.png" alt="broadcast icon"></img>
+            <p>Broadcast</p>
+        </li>
+		
+		
+    </ul>
+</div>

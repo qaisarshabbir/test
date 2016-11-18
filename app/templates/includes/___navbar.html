@@ -1,0 +1,43 @@
+<div style = "display:none;" ng-controller="NavbarCtrl" id="navbar">
+    <nav id="nav-box" ng-click="expandNavbar()"><img src="./assets/logo-letter.png" /></nav>
+    <i class="fa fa-times navbar-close" ng-if="shouldNavbarBeExpanded" ng-click="closeNavbar()"></i>
+    <nav id="full-nav" ng-class="{'expand-navbar':shouldNavbarBeExpanded}">
+        <div class="logo" ui-sref="viewAllBroadcasts"><img src="./assets/logo-white-web.png" alt="Zipline logo"/></div>
+        <div class="contain">
+            <div ng-include src="'templates/includes/login-register-form.html'">
+            </div>
+            <footer ng-if="display === 'logged-in'">
+                <button ui-sref="profile.viewSettings">Settings</button>
+                <div ng-controller="LogoutCtrl">
+                    <button click-and-disable="logout()">Sign Out</button>
+                </div>
+            </footer>
+        </div>
+    </nav>
+</div>
+
+
+
+
+<header ng-controller="NavbarCtrl" id="navbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="logo">
+						<a href="#" ui-sref="viewAllBroadcasts"><img src="assets/images/logo.png" alt="Zipline" /></a>
+					</div>
+				</div>
+
+				<div class="col-md-6" >
+					<div class="text-right" >
+						Already a member?
+						<div ng-include src="'templates/includes/login-register-form.html'">
+							<a href="#">SIGN IN</a>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</header>

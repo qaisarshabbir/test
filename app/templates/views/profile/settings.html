@@ -1,0 +1,86 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="settings">
+    <header>
+        <span class="mobile-spacer"></span>
+        <h1>Settings for {{profile.displayName}}</h1>
+        <h2 ui-sref="profile.viewProfile({profileUsername:profile.username})">zipline.co/<span class="username">{{profile.username}}</span></h2>
+    </header>
+    <h3 ng-class="{'active': isVisible('private-info')}" ng-click="toggleView('private-info')"><i class="fa fa-user-secret"></i>&nbsp;Change Account Info<i class="header-pointer fa fa-chevron-right"></i></h3>
+    <section class="private-info" ng-show="isVisible('private-info')">
+        <article>
+			<div class="row">
+				<div class="col-md-2"><p><strong>Display name</strong></p></div>
+				<div class="col-md-3"><p class="display-info">{{profile.displayName}}</p></div>
+				<div class="col-md-4 changerDisplayName"><zip-change-display-name></zip-change-display-name></div>
+			</div>
+        </article>
+        <article>
+			<div class="row">
+				<div class="col-md-2"><p><strong>Email</strong></p></div>
+				<div class="col-md-3"><p class="display-info">{{profile.email}}</p></div>
+				<div class="col-md-4 changerEmailAddress"><zip-change-email></zip-change-email></div>
+			</div>
+        </article>
+        <article>
+			<div class="row">
+				<div class="col-md-2"> <p><strong>Password</strong></p></div>
+				<div class="col-md-3"><p class="display-info">****</p></div>
+				<div class="col-md-4  changerPassword"><zip-change-password></zip-change-password></div>
+			</div>
+        </article>
+    </section>
+
+    <h3 ng-class="{'active': isVisible('cards')}" ng-click="toggleView('cards')"><i class="fa fa-credit-card-alt"></i>&nbsp;Change Cards<i class="header-pointer fa fa-chevron-right"></i></h3>
+    <section class="cards" ng-show="isVisible('cards')">
+        <zip-credit-card-container ng-if="cards.length > 0" all-cards="cards"></zip-credit-card-container>
+        <div ng-if="!isVisible('addCard')" class="button-container">
+            <button class="add-card" ng-click="toggleView('addCard')">Add Card</button>
+        </div>
+        <zip-add-card ng-if="isVisible('addCard')"></zip-add-card>
+    </section>
+
+    <h3 ng-class="{'active': isVisible('avatar')}" ng-click="toggleView('avatar')"><i class="fa fa-user"></i>&nbsp;Change Avatar<i class="header-pointer fa fa-chevron-right"></i></h3>
+    <section id="upload-avatar" ng-show="isVisible('avatar')">
+        <form name="myForm" enctype="multipart/form-data">
+            <button ngf-select ng-model="picFile" accept="image/*">Select Picture</button>
+            <div ng-if="picFile" class="previews">
+                <div ngf-drop ng-model="picFile" ngf-pattern="image/*"
+                     class="cropArea">
+                    <img-crop image="picFile  | ngfDataUrl"                 
+                    result-image="croppedDataUrl" ng-init="croppedDataUrl=''">
+                    </img-crop>
+                </div>
+                <div class="previewAfter">
+                    <img class="avatar-preview" ng-src="{{croppedDataUrl}}" />
+					<button ng-click="upload(croppedDataUrl)">Submit</button> 
+                    <div class="err" ng-if="errorMsg">{{errorMsg}}</div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <h3 ng-class="{'active': isVisible('transactions')}" ng-click="toggleView('transactions')"><i class="fa fa-usd"></i>&nbsp;View Transactions<i class="header-pointer fa fa-chevron-right"></i></h3>
+    <section id="view-transactions" ng-show="isVisible('transactions')">
+        <button type="button" ng-csv="transactions" csv-header="['Name', 'Date', 'Amount (USD)', 'ZIP code']" filename="test.csv">Export</button>
+        <div class="table-responsive">
+            <table class="table  table-striped transactionTable">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Date</th>
+						<th>Amount</th>
+						<th>ZIP code</th>
+					</tr>
+				</thead>
+                <tbody>
+					<tr ng-repeat="transaction in transactions">
+						<td class="transaction-first-name">{{transaction.name}}</td>
+						<td class="transaction-date">{{transaction.date}}</td>                  
+						<td class="transaction-amount">${{transaction.amount}}</td>
+						<td class="transaction-zip">{{transaction.zip}}</td>                
+					</tr>
+				</tbody>
+            </table>
+        </div>
+    </section>
+</div>

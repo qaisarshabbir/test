@@ -1,0 +1,19 @@
+<div class="label-and-messages">
+    <div class="error-message" 
+        ng-messages="formElem.$error" 
+        ng-if="formElem.$touched">
+        <p ng-message="required">Required</p>
+        <p ng-if="register" ng-message="recordValid">Invalid characters</p>
+        <p ng-if="register" ng-message="unique">Already exists</p>
+    </div>
+</div>
+<input autofocus
+	placeholder="Username" 
+    type="text"
+    name="username" 
+    id="username" 
+    class="form-control" 
+    ng-model="model" 
+    zip-record-validator="username" 
+    required>
+</input>

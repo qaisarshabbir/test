@@ -1,0 +1,27 @@
+<div ng-controller="NavbarCtrl" id="navbar">
+    <nav id="nav-box" ng-click="expandNavbar()"><img src="./assets/logo-letter.png" /></nav>
+    <i class="fa fa-times navbar-close" ng-if="shouldNavbarBeExpanded" ng-click="closeNavbar()"></i>
+    <nav id="full-nav" ng-class="{'expand-navbar':shouldNavbarBeExpanded}">
+        <div class="logo" ui-sref="viewAllBroadcasts"><img src="./assets/logo-white-web.png" alt="Zipline logo"/></div>
+        <div class="contain">
+            <div ng-include src="'templates/includes/login-register-form.html'">
+            </div>
+            <footer ng-if="display === 'logged-in'">
+				<!-- <ul class="navigation-options">
+					<li ng-if="display === 'logged-in'" ui-sref="profile.viewSettings">
+						<img class="nav-icon" src="/assets/settings-mdpi.png" alt="Settings icon"></img>
+						<p>Settings</p>
+					</li>
+					<li ng-if="display === 'logged-in'" ng-controller="LogoutCtrl"  click-and-disable="logout()">
+						<img class="nav-icon" src="/assets/logout-mdpi.png" alt="Logout icon"></img>
+						<p>Logout</p>
+					</li>
+				</ul> -->
+                <button ui-sref="profile.viewSettings"><img class="nav-icon" src="/assets/settings-mdpi.png" alt="Settings icon" />Settings</button>
+                <div ng-controller="LogoutCtrl">
+                    <button click-and-disable="logout()"><img class="nav-icon" src="/assets/logout-mdpi.png" alt="Logout icon" />Sign Out</button>
+                </div>
+            </footer>
+        </div>
+    </nav>
+</div>

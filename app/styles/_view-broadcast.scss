@@ -1,0 +1,222 @@
+#view-broadcast {
+    display: flex;
+    flex-direction: column;
+    >* {
+        width: 100%;
+        display: inline-block;
+        overflow-x: hidden;
+    }
+    
+
+    .main-column {
+        .header {
+            background-color: $purple-dark;
+            height: $mobile-spacer-size;
+            display: flex;
+            padding-top: 8px;
+            .statistics {
+                color: white;
+                display: flex;
+                flex-wrap: wrap;
+                flex-grow: 1;
+                justify-content: flex-end;
+                align-items: center;
+                margin: 0;
+                li {
+                    list-style-type: none;
+                    line-height: .85;
+                    text-align: center;
+                    margin: 0 10px;
+                    font-size: 12px;
+                }
+                .number {
+                    font-weight: $font-weight-semibold;
+                }
+            }
+            .give-button {
+                display: none;
+            }
+        }
+        .video-container {
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            .video {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .broadcast-info {
+            color: $grey-dark;
+            @include avatar(30px);
+            padding: 6px;
+            a {
+                text-decoration: none;
+                color: inherit;
+                &:hover {
+                    color: lighten($grey-dark, 30%);
+                }
+            }
+            h1 {
+                font-size: 18px;
+            }
+            h2 {
+                font-size: 14px;
+            }
+            
+        }
+    }
+
+    .side-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (min-width: $breakpoint-min-width) {
+    #view-broadcast {
+        @include leave-room-for-navbar();
+        flex-direction: row;
+        >* {
+            height: 100vh;
+        }
+        .main-column {
+            display: flex;
+            flex-direction: column;
+            padding: 15px 50px;
+            .header {
+                background-color: white;
+                height: 100px;
+                padding: 0;
+                .statistics li {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 168px;
+                    font-size: 17px;
+                    .number {
+                        font-size: 21px;
+                    }
+                    .num-views {
+                        color: $blue;
+                    }
+                    .num-followers {
+                        color: $purple-light;
+                    }
+                    .num-amount-raised {
+                        color: $teal;
+                    }
+                    .stat-label {
+                        color: $grey-dark;
+                        margin: 0;
+                    }
+                }
+                .statistics:last-child {
+                    border-left: 1px solid $grey-light;
+                }
+                .give-button {
+                    display: inline;
+                    align-self: center;
+                    @include give-button();
+                    font-size: 20px;
+                    width: 170px;
+                    flex-shrink: 1;
+                    height: calc(60% - 0px);
+                    margin-right: 20px;
+                }
+            }
+            zip-broadcast-video {
+                flex-shrink: 0;
+            }
+            .broadcast-info {
+                background: #fff none repeat scroll 0 0 !important;
+                margin-top: 0;
+                padding: 10px 10px 1px;
+                //padding: 0;
+               // margin-top: 12px;
+                .broadcaster {
+                    margin: 20px;
+                }
+                h1 {
+                    font-size: 24px;
+                    margin-left: 25px;
+                }
+                h2 {
+                    font-size: 18px;
+                }
+            }
+            .filler-box {
+                background-color: #f6f4fb;
+                //background-color: $grey-extra-light;
+                height: 500px;
+                width: 100%;
+                margin-top: 12px;
+            }
+
+        }
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 0 0 $broadcast-comments-column-width;
+            background-color: white;
+        }
+    }
+}
+
+#view-broadcast .main-column .broadcast-info {
+    background: #fff none repeat scroll 0 0 !important;
+    margin-top: 0;
+    padding: 10px 10px 1px;
+}
+
+#view-broadcast .main-column .header .give-button {
+    background: #261c37;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 12px rgba(38, 28, 55, 0.33);
+}
+#view-broadcast .main-column .header .give-button:hover{
+    background: #4e3cbc;
+}
+
+#comments .user-comment .send-comment {
+    background: #261c37 !important;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 12px rgba(38, 28, 55, 0.33);
+}
+#comments .user-comment .send-comment:hover {
+    background: #4e3cbc !important;
+}
+
+#send-money zip-money-amount .submit-button {
+    background-color: #261c37 !important;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px !important;
+    box-shadow: 0 0 12px rgba(38, 28, 55, 0.33) !important;
+}
+
+#send-money zip-money-amount .submit-button:hover {
+    background: #4e3cbc !important;
+}
+
+.ng-isolate-scope form#send-money-amount label {
+   // color: #FFF;
+    //font-weight: normal;
+}
+
+#send-money i.send-money-close {
+    //color: #FFF;
+}
+

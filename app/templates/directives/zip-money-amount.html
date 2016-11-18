@@ -1,0 +1,33 @@
+<form name="money-amount-form" id="send-money-amount" class="css-form" ng-submit="submitAmount()">
+    <!--Amount field-->
+    <div class="form-group">
+        
+        <label for="amount">Amount to send</label>
+        
+        <div class="input-group enter-money-field">
+            <div class="input-group-addon">$</div>
+            <input name="amount"
+            autofocus 
+            ng-model="transaction.amount" 
+            type="text" 
+            min="0"
+            pattern="^\d*(\.\d{2})?$"
+            class="form-control send-money-amount"
+            placeholder="100"
+            required />
+        </div>
+    </div>   
+    <!--Select a card-->
+    <div ng-if="cards.length > 1" class="form-group select-card">
+        <label for="card">Please select a card to use for this transaction</label>
+        <select class="form-control" ng-model="transaction.card" ng-options="card.lastFour for card in cards"></select>
+    </div>
+
+    <!--Add a card-->
+    <div ng-if="addCard">
+        <zip-card-form-fields model="cardDetails"></zip-card-form-fields>
+    </div>
+
+    <!--Submit button-->
+    <input type="submit" value="Submit" class="submit-button"></input>
+</form>

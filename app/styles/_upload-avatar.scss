@@ -1,0 +1,59 @@
+#upload-avatar{
+    > form {
+        text-align: center;
+    }
+    button {
+      background-color: #261c37;
+		float: left;
+		border-radius: 3px;
+		font-size: 14px;
+		color: rgba(255, 255, 255, 0.8);
+		font-family: HelveticaLTStdLight;
+		box-shadow: 0 0 12px rgba(38,28,55,.33);
+		border: 0px;
+		margin: 10px;
+		font-weight: normal;
+		padding: 10px 20px;
+		clear: both;
+		&:hover {
+                    background-color: #4e3cbc;
+                }
+    }
+    .cropArea {
+            background: #261c37;
+			overflow: hidden;
+			width: 338px;
+			height: 350px;
+			float: left;
+    }
+    .avatar-preview {
+            border-radius: 50%;
+			float: left;
+			margin: 0px;
+			margin:0px;
+    }
+    .previews {
+        display: block;
+        flex-direction: row;
+        justify-content: center;
+		float: left;
+		width: 100%;
+		padding:0px 10px;
+		    margin-top: 20px;
+			margin-bottom: 20px;
+    }
+	
+	div.previewAfter {
+				float: left;
+				margin-left: 90px;
+				margin-top: 40px;
+				
+			button {
+					padding: 10px 50px;
+					display: inline-block;
+					float: left;
+					width: 100%;
+					margin-top: 30px;
+				}
+			}
+}

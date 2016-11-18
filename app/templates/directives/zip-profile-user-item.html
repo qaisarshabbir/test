@@ -1,0 +1,12 @@
+<a class="profile-info" ui-sref="profile.viewProfile({profileUsername:profile.username})">
+    <figure class="avatar">
+        <img ng-if="profile.avatar" ng-src="{{profile.avatar}}" />
+        <placeholder ng-if="!profile.avatar">{{profile.username[0]}}</placeholder>
+    </figure>
+    <div class="details">
+        <h1 class="display-name">{{profile.displayName}}</h1>
+        <h2 class="username">{{profile.username}}</h2>
+    </div>
+</a>
+<zip-follow-button zip-profile="profile"></zip-follow-button>
+

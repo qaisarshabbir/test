@@ -1,0 +1,9 @@
+#upload-vimeo-broadcast {
+
+}
+
+@media screen and (min-width: $breakpoint-min-width) {
+    #upload-vimeo-broadcast {
+        @include leave-room-for-navbar();
+    }
+}

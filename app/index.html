@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gecko">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+    <!-- Angular HTML5 mode -->
+    <base href="/">
+
+    <title>Zipline</title>
+
+    <!--Open Graph meta tags-->
+    <meta property="og:url" content="http://web.dev.zipline.co/{{username}}/{{shortId}}" />
+    <meta property="og:type" content="video" />
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:description" content="{{broadcasterName}} broadcasting on Zipline" />
+    <meta property="og:image" content="{{thumbnail}}" />
+
+    <!--Facebook meta tag-->
+    <meta property="fb:app_id" content="185697241633463" /> 
+
+    <!--Twitter meta tags-->
+    <meta name="twitter:card" content="app">
+    <meta name="twitter:site" content="@ziplinelabs">
+    <meta name="twitter:description" content="Zipline is the...">
+    <meta name="twitter:app:country" content="US">
+    <meta name="twitter:app:name:iphone" content="Zipline">
+    <meta name="twitter:app:id:iphone" content="1071418253">
+    <meta name="twitter:app:url:iphone" content="ziplink://{{username}}/{{shortId}}">
+    <meta name="twitter:app:name:ipad" content="Zipline">
+    <meta name="twitter:app:id:ipad" content="1071418253">
+    <meta name="twitter:app:url:ipad" content="ziplink://{{username}}/{{shortId}}">
+
+    <!-- Mobile Safari meta tag -->
+    <meta name="apple-itunes-app" content="app-id=1071418253">
+
+    <!--Proxima Nova font-->
+    <script src="//use.typekit.net/pfl8eje.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <!-- Styles -->
+    <link href="styles/style.css" rel="stylesheet"/>
+
+  </head>
+
+  <body ng-cloak>
+    <!-- Facebook login -->
+    <div id="fb-root"></div>
+    
+    <div id="ui-view" ui-view></div>
+
+    <!-- VENDOR SCRIPTS -->
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+
+    <!-- Additional vendor scripts -->
+    <script src="https://js.stripe.com/v2/"></script>
+    <script src="https://cdn.viblast.com/vb/stable/viblast.js"></script>
+    <script src="vendor.min.js"></script>
+
+    <!-- APP SCRIPTS -->
+    <script src="app.min.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<button class="partner-with-button" 
+    ng-if="currentUser._id && 
+        currentUser._id !== profile._id && 
+        profile.managedAccount &&
+        !partneredWith" 
+    ng-click="partnerWith()">Partner with</button>
+
+<button class="unpartner-button" 
+    ng-if="currentUser._id && 
+        currentUser._id !== profile._id && 
+        profile.managedAccount &&
+        partneredWith" 
+    ng-click="unpartner()">Unpartner</button>

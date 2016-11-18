@@ -1,0 +1,102 @@
+#comments {
+    zip-money {
+        flex-shrink: 0;
+    }
+
+    zip-comment-write {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .user-comment {
+        background-color: $grey-extra-light;
+        display: flex;
+        flex-direction: row;
+
+        textarea {
+            @include textarea();
+            width: 100%;
+            align-self: center;
+        }
+        .buttons {
+            height: 50px;
+            display: flex;
+            *> {
+                display: inline-block;
+            }
+        }
+        .send-comment {
+            @include send-button();
+            
+        }
+        .give-button {
+            @include give-button();
+            width: 45px;
+        }
+    }
+
+    zip-comments-window {
+        width: 100%;
+        padding: 15px;
+        background-color: $grey-extra-light;
+        article {
+            padding: 4px;
+            .comment {
+                @include avatar(30px);
+                display: flex;
+                .avatar {
+                    >* {
+                        margin-right: 15px; 
+                    }
+                    placeholder {
+                        background-color: $blue;
+                        color: white;
+                    }
+                }
+                .comment-content {
+                    width: 100%;
+                    background-color: white;
+                    padding: 6px;
+                    p {
+                        margin: 0;
+                    }
+                    h6 {
+                        margin-top: 6px;
+                    }
+                }
+            }
+                
+            .error {
+                border: 1px solid red;
+            }
+
+            .error-message {
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: none;
+                }
+                border-bottom: 1px solid red;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-min-width) {
+        .user-comment {
+            flex-direction: column;
+            padding: 32px;
+            .buttons {
+                margin-top: 12px;
+                align-self: flex-end;
+                .give-button {
+                    display: none;
+                }
+            }
+        }
+            
+        zip-comments-window {
+            overflow-y: auto;
+            height: 100vh;
+        }
+    } 
+}

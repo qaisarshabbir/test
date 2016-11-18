@@ -1,0 +1,63 @@
+<div class="loginSignupForm">
+					
+						<div class="facebook-login facebook">
+							<!--<fb:login-button zip-fb-login scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>-->
+                            <fb:login-button class="btnFacebook" length="long" size="large" scope="public_profile,email" onlogin="checkLoginState();">
+  <span class="btnFacebookSpan" style= "margin-right: 10px;">Login with Facebook</span>
+</fb:login-button>
+						</div>
+						<div class="divider">
+							<span>or</span>
+						</div>
+						<div class="form registration">
+							<form name="registrationForm" id="registration-form" class="login-form css-form" ng-submit="register()">
+								<div class="field-group">
+									<!--Email-->
+									<div class="label-and-messages">
+										<div class="error-message" 
+											ng-messages="registrationForm.email.$error" 
+											ng-if="registrationForm.email.$touched">
+											<p ng-message="required">Required</p>
+											<p ng-message="recordValid">Invalid</p>
+											<p ng-message="unique">Already exists</p>
+										</div>
+									</div>
+									<input autofocus placeholder="Email" 
+									type="text"
+									name="email" 
+									id="email" 
+									class="form-control" 
+									ng-model="registrationData.email" 
+									zip-record-validator="email" 
+									required></input>
+								</div>
+								
+								<div class="field-group">
+									<zip-username-field model="registrationData.username" type="'register'"></zip-username-field>
+
+								</div>
+								<div class="field-group">
+									<!--Password-->
+								<zip-password-field model="registrationData.password"></zip-password-field>
+
+								</div>
+								
+
+								
+								
+								<div style="display: none"><a href="#" ng-click="forgotPassword()" class="forgot-password">Forgot Password</a></div>
+
+								<div class="buttons-container">
+									<!--SUBMIT-->
+									<button  class="btn btn-primary btn-block submit-button" type="submit">
+										<span ng-if="!registerLoading || registerLoading.$$state.status !== 0">Sign Up</span>
+										<i ng-if="registerLoading.$$state.status === 0" class="fa fa-spin fa-spinner"></i>
+									</button>
+									
+								</div>
+							</form>
+							<p>By Signing up you agree with our <a href="#">Terms & Conditions</a></p>
+						</div>
+						
+						<p class="haveAnAccount" ng-if="!isLoggedIn">Have an account? <a href="#" ng-controller="SignInModalCtrl" ng-click="openSignInModal('login')">Sign In</a></p>
+					</div>

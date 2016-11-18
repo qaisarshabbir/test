@@ -1,0 +1,62 @@
+zip-credit-card-container {
+    
+    .cardsList {
+        display: flex;
+        flex-wrap: wrap;
+        
+        zip-credit-card-tile {
+            width: 400px;
+            height: calc(400px * 0.63);
+            margin: 8px;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 6px;
+            position: relative;
+
+            > * {
+                display: inline-block;
+                position: absolute;
+            }
+
+            .brand {
+                top: 8px;
+                right: 8px;
+            }
+
+            .number {
+                font-weight: 600;
+                font-size: 2em;
+                bottom: 30%;
+                left: 1em;
+            }
+            
+            .expiration {
+                font-weight: 600;
+                left: 4em;
+                bottom: calc(30% - 2em);
+            }
+            
+            .button-container {
+                margin: 4px;
+                bottom: 8px;
+                right: 8px;
+                button {
+                    @include button();
+                    color: white;
+                    &.delete {
+                        background-color: $purple-dark;
+                        &:hover {
+                            background-color: lighten($purple-dark, 20%);
+                        }
+                    }
+                    &.default {
+                        background-color: $teal;
+                        &:hover {
+                            background-color: darken($teal, 20%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

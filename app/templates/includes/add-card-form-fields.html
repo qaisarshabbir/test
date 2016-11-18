@@ -1,0 +1,108 @@
+<div class="add-card-fields">
+<div class="row">
+	<div class="col-md-6 col-sm-6">
+		<!-- Name -->
+<fieldset class="form-group">
+    <input class="form-control"
+        type="text"
+        name="name"
+        placeholder="Cardholder Name*"
+        ng-model="model.name"
+        required>
+    <div class="label-and-messages">
+        <div class="error-message" 
+            ng-messages="form.name.$error" 
+            ng-if="form.name.$touched">
+            <p ng-message="required">Name required</p>
+        </div>
+    </div>
+</fieldset>
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<!-- Card Number -->
+		<fieldset class="form-group">
+			<input class="form-control"
+				type="text"
+				name="cardNumber"
+				placeholder="Card Number*"
+				ng-model="model.number"
+				zip-record-validator="creditCardNumber" 
+				required>
+			<div class="label-and-messages">
+				<div class="error-message" 
+					ng-messages="form.cardNumber.$error" 
+					ng-if="form.cardNumber.$touched">
+					<p ng-message="required">Card number required</p>
+					<p ng-message="recordValid">Invalid card number</p>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</div>
+	
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<!-- ZIP -->
+    <fieldset class="form-group">
+        <input class="form-control"
+            type="text"
+            name="zip"
+            pattern="^[0-9]{5}$"
+            title="ZIP code should contain 5 digits"
+            placeholder="ZIP Code*"
+            ng-model="model.zip"
+            required>
+        <div class="label-and-messages">
+            <div class="error-message" 
+                ng-messages="form.zip.$error" 
+                ng-if="form.zip.$touched">
+                <p ng-message="required">ZIP code required</p>
+            </div>
+        </div>
+    </fieldset>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			 <!-- CVC -->
+    <fieldset class="form-group">
+        <input class="form-control"
+            type="text"
+            name="cardCVC"
+            placeholder="CVC*"
+            pattern="^[0-9]{3,4}$"
+            size="12"
+            ng-model="model.cvc"
+            zip-record-validator="creditCardCVC" 
+            required>
+        <div class="label-and-messages">
+            <div class="error-message" 
+                ng-messages="form.cardCVC.$error" 
+                ng-if="form.cardCVC.$touched">
+                <p ng-message="required">CVC required</p>
+                <p ng-message="recordValid">Invalid security code</p>
+            </div>
+        </div>
+    </fieldset>
+		</div>
+	</div>
+	
+	
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			 <!-- Expiration -->
+    <fieldset class="form-group">
+        <select class="form-control" ng-model="model.expMonth" ng-options="val for val in months" id="expMonth" required>
+            <option value="">Exp Month*</option>
+        </select>
+    </fieldset>
+		</div>
+		<div class="col-md-6 col-sm-6">
+	<fieldset class="form-group">
+        <select class="form-control" ng-model="model.expYear" ng-options="val for val in years" id="expYear" required>
+            <option value="">Exp Year*</option>
+        </select>
+    </fieldset>
+		</div>
+		
+	</div>
+
+</div>

@@ -1,0 +1,33 @@
+<ng-include src="'templates/includes/navbar.html'"></ng-include>
+<div id="upload-broadcast" ng-if="!postUpload" ng-controller="CurrentUserCtrl as currentUser">
+
+	<div class="col-md-8 col-md-offset-2">
+		<form name="myForm" class="css-form broadcast-upload-form">
+        <fieldset>
+            <label for="broadcastTitle" class="sr-only">Broadcast title</label>
+            <input type="text" name="broadcastInfo.title" class="form-control" placeholder="Broadcast title" ng-model="broadcastInfo.title" size="30" ></input>
+            <label id="uploadBtn" class="custom-file-upload">Choose file
+                <input type="file" class="inputfile" ngf-select ng-model="videoFile" name="file" accept="video/*" ngf-model-invalid="errorFile" ngf-change="onFileSelect($files)" required>
+            </label>
+            <span>{{fileName}}</span>
+            <div class="affiliate" ng-if="currentUser.profile.affiliatedWith.length">
+                <label for="affiliate">Are you broadcasting on behalf of another user?</label>
+                <select name="affiliate" class="form-control" size="4" ng-model="broadcastInfo.affiliate" size="30">
+                    <option value="">No</option>
+                    <option ng-repeat="option in currentUser.profile.affiliatedWith" value="{{option._id}}">{{option.displayName}}</option>
+                </select>
+            </div>
+            <button ng-disabled="!myForm.$valid" ng-click="uploadFiles(videoFile, broadcastInfo)">
+                <span ng-if="!uploadBroadcast || uploadBroadcast.$$state.status !== 0">Broadcast!</span>
+                <i ng-if="uploadBroadcast.$$state.status === 0" class="fa fa-spin fa-spinner"></i>
+
+            </button>
+            <span class="progress" ng-show="progress >= 0">
+                <div style="width:{{progress}}%" 
+                ng-bind="progress + '%'"></div>
+            </span>
+        </fieldset>
+    </form>
+	</div>
+    
+</div>

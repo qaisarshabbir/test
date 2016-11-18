@@ -1,0 +1,7 @@
+<header class="number">**** **** **** {{card.lastFour}}</header>
+<div class="expiration">{{card.expMonth}}/{{card.expYear}}</div>
+<div class="brand">{{card.brand}}</div>
+<div class="button-container">
+    <button class="delete" type="button" ng-click="deleteCard(card)">Delete card</button>
+    <button ng-if="!card.default" class="default" type="button" ng-click="makeDefault(card)">Make Default</button>
+</div>
